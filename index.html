@@ -5,10 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>reveal.js</title>
-
+		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Mukta+Malar|Staatliches|ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/adventure.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,8 +25,52 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="signal" data-background-image="assets/Part01_Signal.jpg">
+					<section>
+						<h2>What happens next:</h2>
+						<div>a choose-your-own-adventure with iterators</div>
+						<aside class="notes">
+							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+						</aside>
+					</section>
+					<section><h2>👋 Hi! I'm Jenn!</h2></section>
+					<section data-state="intro">
+						<div>Frontend Architect @</div>
+						<div class="the-wing">
+							<img class="logo" src="assets/WING_PINK.png" />
+							<img class="wordmark" src="assets/WING_WORDMARK_PINK.png" />
+						</div>
+					</section>
+					<section data-state="intro">
+						<h2>@gurlcode</h2>
+					</section>
+					<section data-state="animate-background"></section>
+				</section>
+				<section>
+					<a href="#/foobazbar">FooBaz Bar</a>
+					<a href="#/library">The Library</a>
+				</section>
+				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
+					<section data-state="start"></section>
+					<section data-state="middle"></section>
+					<section data-state="end"></section>
+				</section>
+				<section>
+						<code>data-background="#dddddd"</code>
+				</section>
+				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
+					<section data-state="start"></section>
+					<section data-state="animate"></section>
+				</section>
+				<section>
+						<a href="#/bubblesortlaundry">Bubblesort Laundry</a>
+						<a href="#/saladassembly">Salad Assembly</a>
+					</section>
+					<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
+						<section data-state="start"></section>
+						<section data-state="animate"></section>
+					</section>
+					<section data-state="salad" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg"></section>
 			</div>
 		</div>
 
@@ -37,6 +81,12 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				navigationMode: 'linear',
+				controls: false,
+				progress: false,
+				center: false,
+				transition: 'none',
+				backgroundTransition: 'none',
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },

@@ -1,0 +1,214 @@
+/**
+ * Beige theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Teal #065069
+// Midnight Blue #130A39 // rgba(19, 10 57)
+// Brown #641D58
+// Old Rose #9B3E97 // rgba(155, 62, 151)
+// Another Dark Blue #1C1561 // rgba(28, 21, 97)
+
+// Include theme-specific fonts
+$mainFont: 'Do Hyeon', sans-serif;
+$headingFont: 'Do Hyeon', sans-serif;
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none !important;
+}
+
+.reveal section img {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important; 
+}
+
+.signal {
+	.present {
+		h2 {
+			margin: 1em 0 0 0;
+		}
+	
+		.slide-background-content {
+			background-position: 90% 0% !important;
+		}
+	}
+}
+
+.signal.intro {
+
+	.present {
+		.bio{
+			background: linear-gradient(176deg, rgba(95, 49, 93, 0.5), rgba(155, 62, 151, 0) 100%), linear-gradient(217deg, rgba(31, 29, 53, 0.8), rgba(28, 21, 97, 0) 60.71%), linear-gradient(127deg, rgba(28, 21, 97, 0.8), rgba(28, 21, 97, 0) 70.71%), linear-gradient(336deg, rgba(12, 5, 43, 0.8), rgba(19, 10, 57, 0) 70.71%);
+		}
+	}
+
+	.the-wing {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 190px;
+		margin-top: .5em;
+
+		.logo {
+			width: 114px;
+		}
+
+		.wordmark {
+			position: absolute;
+			top: 40px;
+		}
+	}
+
+	.twitter {
+		position: relative;
+		bottom: 1em;
+	}
+}
+
+.signal.animate-background {
+	.slide-background-content {
+		animation: animate-signal 10s linear forwards;
+	}
+}
+
+@keyframes animate-signal {
+	from { background-position: 90% 0%; }
+	to { background-position: 0% 0%; }
+}
+
+.bar {
+	.slide-background-content {
+		background-position: bottom left;
+		background-size: 200% auto !important;
+	}	
+}
+
+.bar.middle {
+	.slide-background-content {
+		animation: animate-bar 10s linear forwards;
+	}
+}
+
+.bar.end {
+	.slide-background-content {
+		background-position: bottom right;
+		animation: animate-size 10s linear forwards;
+	}
+}
+
+@keyframes animate-bar {
+	from { background-position: bottom left; }
+	to { background-position: bottom right; }
+}
+
+@keyframes animate-size {
+	from { background-size: 200% auto; }
+	to { background-size: 100% auto; }
+}
+
+.library {
+	.slide-background-content {
+		background-position: bottom left;
+		background-size: 200% auto !important;
+	}		
+}
+
+.library.animate {
+	.slide-background-content {
+		animation: animate-size 10s linear forwards;
+	}
+}
+
+.laundry {
+	.slide-background-content {
+		background-position: bottom 20% left;
+		background-size: 220% auto !important;
+	}		
+}
+
+.laundry.animate {
+	.slide-background-content {
+		animation: animate-laundry-1 10s linear forwards,
+							animate-laundry-2 10s linear forwards,
+							animate-laundry-3 10s linear 11s forwards,
+							animate-laundry-4 10s linear 21s forwards;
+	}
+}
+
+@keyframes animate-laundry-1 {
+	from { 
+		background-size: 220% auto; 
+	}
+	to { 
+		background-size: 200% auto; 
+	}
+}
+
+@keyframes animate-laundry-2 {
+	from { 
+		background-position: bottom 20% left;
+	}
+	to { 
+		background-position: center left;
+	}
+}
+
+@keyframes animate-laundry-3 {
+	from { 
+		background-position: center left;
+		// background-size: 200% auto; 
+	}
+	to { 
+		background-position: top 20% right 20%;
+		// background-size: 100% auto; 
+	}
+}
+
+@keyframes animate-laundry-4 {
+	from { 
+		background-size: 200% auto; 
+	}
+	to { 
+		background-size: 100% auto; 
+	}
+}
+
+// 'Staatliches', cursive;
+// 'Mukta Malar', sans-serif;
+// 'Do Hyeon', sans-serif;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: #fff;
+$headingColor: #fff;
+$headingTextShadow: none;
+$backgroundColor: #0f0c2d;
+$linkColor: #9B3E97;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(155, 62, 151, 0.99);
+$heading1TextShadow: 0 1px #130A39, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+
+// Background generator
+@mixin bodyBackground() {
+	// background: linear-gradient(-90deg, transparent, black);
+	background: linear-gradient(176deg, rgba(95, 49, 93, 0.5), rgba(155, 62, 151, 0) 100%), linear-gradient(217deg, rgba(31, 29, 53, 0.8), rgba(28, 21, 97, 0) 60.71%), linear-gradient(127deg, rgba(28, 21, 97, 0.8), rgba(28, 21, 97, 0) 70.71%), linear-gradient(336deg, rgba(12, 5, 43, 0.8), rgba(19, 10, 57, 0) 70.71%);
+					
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
