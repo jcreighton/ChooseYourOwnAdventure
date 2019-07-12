@@ -16,6 +16,42 @@
   border: none !important;
   box-shadow: none !important; }
 
+.reveal pre {
+  box-shadow: none !important; }
+
+.reveal pre code {
+  max-height: none !important; }
+
+.manual {
+  font-family: 'VT323', monospace; }
+
+.map a {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: #fff !important;
+  font-size: 18px;
+  background-color: red; }
+  .map a.bar {
+    top: 500px;
+    left: 300px; }
+  .map a.library {
+    top: 240px;
+    right: 60px; }
+  .map a.laundry {
+    top: 260px;
+    left: 20px; }
+  .map a.salad {
+    top: 0;
+    left: 110px; }
+  .map a:hover {
+    color: #fff !important;
+    background-color: #ff3333; }
+
 .signal .present h2 {
   margin: 1em 0 0 0; }
 
@@ -50,6 +86,18 @@
     background-position: 90% 0%; }
   to {
     background-position: 0% 0%; } }
+
+.planet .slide-background-content {
+  background-position: bottom 10% center; }
+
+.planet.animate .slide-background-content {
+  animation: animate-planet 10s linear forwards; }
+
+@keyframes animate-planet {
+  from {
+    background-position: bottom 10% center; }
+  to {
+    background-position: top 15% center; } }
 
 .bar .slide-background-content {
   background-position: bottom left;

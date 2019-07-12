@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
-		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Mukta+Malar|Staatliches|ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+		<title>What happens next: a choose-your-own-adventure with iterators</title>
+		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Mukta+Malar|Staatliches|VT323|ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/adventure.css">
@@ -29,9 +29,6 @@
 					<section>
 						<h2>What happens next:</h2>
 						<div>a choose-your-own-adventure with iterators</div>
-						<aside class="notes">
-							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
-						</aside>
 					</section>
 					<section><h2>👋 Hi! I'm Jenn!</h2></section>
 					<section data-state="intro">
@@ -44,9 +41,13 @@
 					<section data-state="intro">
 						<h2>@gurlcode</h2>
 					</section>
-					<section data-state="intro">
-							<h2>choose-your-own-adventure</h2>
-						</section>
+					<section>
+						<h2>What happens next:</h2>
+						<div>a choose-your-own-adventure with iterators</div>
+					</section>
+					<section data-state="intro" data-transition="fade-in">
+            <h2>Part 1: ECMA</h2>
+          </section>
 					<section data-state="animate-background">
 						<aside class="notes">
 							<div>You are an intergalactic engineer with a perplexing mystery to solve. Your ship, the SSH Code, has received a distress signal from a nearby planet, ECMA.</div>
@@ -65,41 +66,171 @@
 							<div>W. Orld opens what appears to be a book but is soon revealed to be an electronic map. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports but it appears some are out of order. But others are working as expected. It’s throwing various systems into chaos.”</div>									
 						</aside>
 				</section>
-				<section data-state="planet" data-background-image="assets/Part01_Planet.jpg">
+				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+					<a class="choose bar" href="#/foobazbar">FooBaz Bar</a>
+					<a class="choose library" href="#/library">The Library</a>
 					<aside class="notes">
 							<div>W. Orld opens what appears to be a book but is soon revealed to be an electronic map. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports but it appears some are out of order. But others are working as expected. It’s throwing various systems into chaos.”</div>		
 							<div>“You can take this with you,” offers W. Orld. “Two of the reports are nearby, The Library and the FooBaz Bar, if you’d like to start your investigation there.”</div>	
-							<div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>							
+							<div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>
+							<div>So which do you visit first?</div>								
 						</aside>
 				</section>
-				<section>
-					<a href="#/foobazbar">FooBaz Bar</a>
-					<a href="#/library">The Library</a>
-					<aside class="notes">
-						<div>So which do you visit first?</div>								
-					</aside>
-				</section>
-				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
+				<section data-state="title bar" class="center" id="foobazbar" data-transition="fade-in">
+						<h2>Part 2: The FooBaz Bar</h2>
+					</section>
+				<section data-state="bar" data-background-image="assets/Part02_TheFooBazBar.jpg">
 					<section data-state="start"></section>
 					<section data-state="middle"></section>
 					<section data-state="end"></section>
+					<aside class="notes">
+						<div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
+						<div>“Hello?”</div>		
+						<div>You can see the bar is covered in a mess of wires and cables.</div>
+						<div>“Hello?”</div>
+						<div>The bartender pops up suddenly, looking tired and surprised.</div>			
+						<div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
+						<div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
+						<div>“Oh,” they respond. “Let me show you!”</div>
+						<div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
+						<div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
+						<div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
+						<div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
+					</aside>
 				</section>
-				<section>
-						<code>data-background="#dddddd"</code>
+				<section data-signal="code bar" class="center">
+					<section>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+                let drinks = [];
+
+                function addToOrder(drink) {
+                  drinks.push(drink);
+                };
+  
+                function completeOrder() {	
+                  for (let drink of drinks) {
+                    makeDrink(drink);
+                  }
+  
+                  sendOrderToTable();
+                }
+							</code>
+						</pre>
+					</section>
+					<section>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
+                let drinks = [];
+
+                function addToOrder(drink) {
+                  drinks.push(drink);
+                };
+  
+                function completeOrder() {	
+                  for (let drink of drinks) {
+                    makeDrink(drink);
+                  }
+  
+                  sendOrderToTable();
+                }
+							</code>
+						</pre>
+					</section>
 				</section>
-				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
+				<section data-state="title library" class="center" id="library" data-transition="fade-in">
+					<h2>Part 2: The Library</h2>
+				</section>
+				<section data-state="library" data-background-image="assets/Part02_TheLibrary.jpg">
 					<section data-state="start"></section>
 					<section data-state="animate"></section>
 				</section>
-				<section>
-						<a href="#/bubblesortlaundry">Bubblesort Laundry</a>
-						<a href="#/saladassembly">Salad Assembly</a>
+				<section data-signal="code library" class="center">
+					<section>
+						<pre>
+							<code class="hljs javascript" data-trim data-noescape data-line-numbers>
+								let books = [];
+							</code>
+						</pre>
 					</section>
-					<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
-						<section data-state="start"></section>
-						<section data-state="animate"></section>
+					<section>
+						<pre>
+							<code class="hljs javascript" data-trim data-noescape data-line-numbers="8, 9, 10">
+                let drinks = [];
+
+                function addToOrder(drink) {
+                  drinks.push(drink);
+                };
+
+                function completeOrder() {	
+                  for (let drink of drinks) {
+                    makeDrink(drink);
+                  }
+
+                  sendOrderToTable();
+                }
+
+                addToOrder("beer");
+                addToOrder("water");
+							</code>
+						</pre>
 					</section>
-					<section data-state="salad" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg"></section>
+				</section>
+				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+					<a class="choose laundry" href="#/bubblesortlaundry">Bubblesort Laundry</a>
+					<a class="choose salad" href="#/saladassembly">Salad Assembly</a>
+					<aside class="notes">
+						<!-- Notes -->
+					</aside>
+				</section>
+				<section data-state="title laundry" class="center" id="laundry" data-transition="fade-in">
+					<h2>Part 3: Bubblesort Laundry</h2>
+				</section>
+				<section data-state="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
+					<section data-state="start"></section>
+					<section data-state="animate"></section>
+        </section>
+        <section data-signal="code laundry" class="center">
+          <section>
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                let books = [];
+              </code>
+            </pre>
+          </section>
+        </section>
+				<section data-state="title salad" class="center" id="salad" data-transition="fade-in">
+						<h2>Part 3: Salad Assembly</h2>
+					</section>
+				<section data-state="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
+					<section data-state="start"></section>
+					<section data-state="animate"></section>
+        </section>
+        <section data-signal="code salad" class="center">
+          <section>
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                let books = [];
+              </code>
+            </pre>
+          </section>
+        </section>
+				<section data-state="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+					<section data-state="start"></section>
+					<section data-state="animate"></section>
+        </section>
+        <section data-signal="code cablecar" class="center">
+          <section>
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                let books = [];
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section data-state="revert" data-transition="fade-in">
+          <h2>Part 5: The Revert</h2>
+        </section>
 			</div>
 		</div>
 

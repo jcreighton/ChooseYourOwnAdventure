@@ -10,12 +10,6 @@
 @import "../template/settings";
 // ---------------------------------------------
 
-// Teal #065069
-// Midnight Blue #130A39 // rgba(19, 10 57)
-// Brown #641D58
-// Old Rose #9B3E97 // rgba(155, 62, 151)
-// Another Dark Blue #1C1561 // rgba(28, 21, 97)
-
 // Include theme-specific fonts
 $mainFont: 'Do Hyeon', sans-serif;
 $headingFont: 'Do Hyeon', sans-serif;
@@ -33,6 +27,58 @@ $headingFont: 'Do Hyeon', sans-serif;
 	background: transparent !important;
 	border: none !important;
 	box-shadow: none !important; 
+}
+
+.reveal pre {
+	box-shadow: none !important;
+}
+
+.reveal pre code {
+	max-height: none !important;
+}
+
+.manual {
+	font-family: 'VT323', monospace;
+}
+
+.map {
+	a {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		color: #fff !important;
+		font-size: 18px;
+		background-color:red; 
+
+		&.bar {
+			top: 500px;
+			left: 300px
+		}
+
+		&.library {
+			top: 240px;
+			right: 60px;
+		}
+
+		&.laundry {
+			top: 260px;
+			left: 20px;
+		}
+
+		&.salad {
+			top: 0;
+			left: 110px;
+		}
+
+		&:hover {
+			color: #fff !important;
+			background-color:lighten(red, 10%);
+		}
+	}
 }
 
 .signal {
@@ -88,6 +134,27 @@ $headingFont: 'Do Hyeon', sans-serif;
 @keyframes animate-signal {
 	from { background-position: 90% 0%; }
 	to { background-position: 0% 0%; }
+}
+
+.planet {
+  .slide-background-content {
+    background-position: bottom 10% center;
+  }
+}
+
+.planet.animate {
+  .slide-background-content {
+    animation: animate-planet 10s linear forwards;
+  }
+}
+
+@keyframes animate-planet {
+	from { 
+		background-position: bottom 10% center;
+	}
+	to { 
+		background-position: top 15% center;
+	}
 }
 
 .bar {
