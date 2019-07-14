@@ -48,7 +48,13 @@
   .manual .present b {
     letter-spacing: 3px; }
 
-.map a {
+.map .alert {
+  background-color: tomato;
+  padding: 16px;
+  color: white !important;
+  border-radius: 2px; }
+
+.map .choose {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -61,19 +67,19 @@
   font-size: 18px;
   background-color: #f7c544;
   box-shadow: 0 0 20px #fbe3a6; }
-  .map a.bar {
+  .map .choose.bar {
     top: 500px;
     left: 300px; }
-  .map a.library {
+  .map .choose.library {
     top: 240px;
     right: 60px; }
-  .map a.laundry {
+  .map .choose.laundry {
     top: 260px;
     left: 20px; }
-  .map a.salad {
+  .map .choose.salad {
     top: 0;
     left: 110px; }
-  .map a:hover {
+  .map .choose:hover {
     color: white !important;
     text-shadow: 0 0 3px #000 !important;
     background-color: #f9d475; }

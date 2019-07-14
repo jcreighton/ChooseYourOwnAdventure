@@ -77,7 +77,14 @@ $headingFont: 'Do Hyeon', sans-serif;
 }
 
 .map {
-	a {
+	.alert {
+		background-color: tomato;
+		padding: 16px;
+		color: white !important;
+		border-radius: 2px;
+	}
+
+	.choose {
 		position: absolute;
 		display: flex;
 		justify-content: center;

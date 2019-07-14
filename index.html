@@ -77,7 +77,7 @@
 							<div>So which do you visit first?</div>								
 						</aside>
 				</section>
-				<section data-state="bar" id="bar" data-background-image="assets/Part02_TheFooBazBar.jpg">
+				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The FooBaz Bar</h2>
 					</section>
@@ -239,28 +239,31 @@
           </code></pre>
         </section>
         <section data-state="manual" class="center">
-            <div class="title">
-              <span>JavaScript: All the Parts</span>
-              <span>pg 171</span>
-            </div>
-            <p>Whenever an object needs to be iterated (such as at the beginning of a for..of loop or when paired with the spread operator), its iterator method is called, and the returned iterator is used to obtain the values to be iterated.</p>
-            <pre><code>
-              const iterable = {
-                [Symbol.iterator]: function() {
-                  // Returns an iterator
-                },
-              };
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 171</span>
+          </div>
+          <p>Whenever an object needs to be iterated (such as at the beginning of a for..of loop or when paired with the spread operator), its iterator method is called, and the returned iterator is used to obtain the values to be iterated.</p>
+          <pre><code>
+            // iterable[Symbol.iterator]()
 
-              // iterable[Symbol.iterator]()
+            for (variable of iterable) {
+              statement
+            }
 
-              for (variable of iterable) {
-                statement
-              }
-
-              [...iterable]
-            </code></pre>
+            [...iterable]
+          </code></pre>
+        </section>
+        <section data-signal="code laundry" class="center">
+          <section>
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                // Accessing the iterable[Symbol.iterator]()
+              </code>
+            </pre>
           </section>
-				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+        </section>
+				<section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
 					<a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
 					<aside class="notes">
 					</aside>
