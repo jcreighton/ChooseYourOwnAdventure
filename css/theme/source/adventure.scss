@@ -23,6 +23,16 @@ $headingFont: 'Do Hyeon', sans-serif;
   text-transform: none !important;
 }
 
+.reveal .light-effect {
+	color: #fff;
+	text-shadow: 0 0 5px #fff, 0 0 10px #000 !important;
+	letter-spacing: 5px;
+}
+
+.reveal .light-effect-special {
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 6px darkblue !important;
+}
+
 .reveal section img {
 	background: transparent !important;
 	border: none !important;
@@ -38,7 +48,32 @@ $headingFont: 'Do Hyeon', sans-serif;
 }
 
 .manual {
-	font-family: 'VT323', monospace;
+	.present {
+		background: #eee;
+		color: black;
+		font-family: 'VT323', monospace;
+
+		.title {
+			display: flex;
+			justify-content: space-between;
+			margin-top: -20px;
+			margin-bottom: 40px;
+			font-size: 20px;
+		}
+
+		.blur {
+			filter: blur(5px);
+		}
+
+		p {
+			text-align: left;
+			margin-bottom: 40px;
+		}
+
+		b {
+			letter-spacing: 3px;
+		}
+	}
 }
 
 .map {
@@ -50,9 +85,11 @@ $headingFont: 'Do Hyeon', sans-serif;
 		height: 100px;
 		width: 100px;
 		border-radius: 50%;
-		color: #fff !important;
+		color: white !important;
+		text-shadow: 0 0 3px #000;
 		font-size: 18px;
-		background-color:red; 
+		background-color:darken(rgb(249, 212, 117), 10%);
+		box-shadow: 0 0 20px lighten(rgb(249, 212, 117), 10%);
 
 		&.bar {
 			top: 500px;
@@ -75,8 +112,9 @@ $headingFont: 'Do Hyeon', sans-serif;
 		}
 
 		&:hover {
-			color: #fff !important;
-			background-color:lighten(red, 10%);
+			color: white !important;
+			text-shadow: 0 0 3px #000 !important;
+			background-color:rgb(249, 212, 117);
 		}
 	}
 }
@@ -94,13 +132,6 @@ $headingFont: 'Do Hyeon', sans-serif;
 }
 
 .signal.intro {
-
-	.present {
-		.bio{
-			background: linear-gradient(176deg, rgba(95, 49, 93, 0.5), rgba(155, 62, 151, 0) 100%), linear-gradient(217deg, rgba(31, 29, 53, 0.8), rgba(28, 21, 97, 0) 60.71%), linear-gradient(127deg, rgba(28, 21, 97, 0.8), rgba(28, 21, 97, 0) 70.71%), linear-gradient(336deg, rgba(12, 5, 43, 0.8), rgba(19, 10, 57, 0) 70.71%);
-		}
-	}
-
 	.the-wing {
 		position: relative;
 		display: flex;
@@ -164,16 +195,10 @@ $headingFont: 'Do Hyeon', sans-serif;
 	}	
 }
 
-.bar.middle {
+.bar.animate {
 	.slide-background-content {
-		animation: animate-bar 10s linear forwards;
-	}
-}
-
-.bar.end {
-	.slide-background-content {
-		background-position: bottom right;
-		animation: animate-size 10s linear forwards;
+		animation: animate-bar 10s linear forwards,
+					animate-size 10s 10s linear forwards;
 	}
 }
 
@@ -251,6 +276,93 @@ $headingFont: 'Do Hyeon', sans-serif;
 	}
 	to { 
 		background-size: 100% auto; 
+	}
+}
+
+.salad {
+	.slide-background-content {
+		background-position: top left;
+		background-size: 200% auto !important;
+	}		
+}
+
+.salad.animate {
+	.slide-background-content {
+		// animation: animate-laundry-1 10s linear forwards;
+	}
+}
+
+.cablecar {
+	.slide-background-content {
+		background-position: top 10% right;
+		background-size: 220% auto !important;
+	}		
+}
+
+.cablecar.animate {
+	.slide-background-content {
+		animation: animate-cablecar-down 10s linear forwards,
+							animate-cablecar-left 10s linear 10s forwards,
+							animate-cablecar-right 10s linear 20s forwards,
+							animate-cablecar-size 10s linear 30s forwards;
+	}
+}
+
+@keyframes animate-cablecar-down {
+	from { 
+		background-position: top 10% right;
+	}
+	to { 
+		background-position: bottom right;
+	}
+}
+
+@keyframes animate-cablecar-left {
+	from { 
+		background-position: bottom right;
+	}
+	to { 
+		background-position: bottom center;
+	}
+}
+
+@keyframes animate-cablecar-right {
+	from { 
+		background-position: bottom center;
+	}
+	to { 
+		background-position: center center;
+	}
+}
+
+@keyframes animate-cablecar-size {
+	from { 
+		background-size: 220% auto; 
+	}
+	to { 
+		background-size: 100% auto; 
+	}
+}
+
+.code {
+	&.bar .reveal {
+		background-color: rgb(240, 145, 117);
+	}
+
+	&.library .reveal {
+		background-color: #A8CCFA;
+	}
+
+	&.laundry .reveal {
+		background-color: #0B399F;
+	}
+
+	&.salad .reveal {
+		background-color: #65BEC9;
+	}
+
+	&.cablecar .reveal {
+		background-color: #F99CBC;
 	}
 }
 

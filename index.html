@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="css/theme/adventure.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -25,45 +25,46 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
 				<section data-state="signal" data-background-image="assets/Part01_Signal.jpg">
 					<section>
-						<h2>What happens next:</h2>
-						<div>a choose-your-own-adventure with iterators</div>
+						<h2 class="light-effect">What happens next:</h2>
+						<div class="light-effect">a choose-your-own-adventure with iterators</div>
 					</section>
-					<section><h2>👋 Hi! I'm Jenn!</h2></section>
+					<section><h2 class="light-effect">👋 Hi! I'm Jenn!</h2></section>
 					<section data-state="intro">
-						<div>Frontend Architect @</div>
+						<div class="light-effect">Frontend Architect @</div>
 						<div class="the-wing">
 							<img class="logo" src="assets/WING_PINK.png" />
 							<img class="wordmark" src="assets/WING_WORDMARK_PINK.png" />
 						</div>
 					</section>
 					<section data-state="intro">
-						<h2>@gurlcode</h2>
+						<h2 class="light-effect">@gurlcode</h2>
 					</section>
 					<section>
-						<h2>What happens next:</h2>
-						<div>a choose-your-own-adventure with iterators</div>
+						<h2 class="light-effect">What happens next:</h2>
+						<div class="light-effect">a choose-your-own-adventure with iterators</div>
 					</section>
 					<section data-state="intro" data-transition="fade-in">
-            <h2>Part 1: ECMA</h2>
+            <h2 class="light-effect">Part 1: ECMA</h2>
           </section>
 					<section data-state="animate-background">
 						<aside class="notes">
 							<div>You are an intergalactic engineer with a perplexing mystery to solve. Your ship, the SSH Code, has received a distress signal from a nearby planet, ECMA.</div>
 							<div>“Something is wrong. Our systems are in disarray. Help.”</div>			
-							<div>You landed on the planet a few minutes ago. You are standing in front of a small building where the distress signal is originating from. “Hello!”, you call out.</div>					
+							<div>You landed on the planet a few seconds ago. Before you can so much as look around...</div>					
 						</aside>
 					</section>
-				</section>
-				<section data-state="planet" data-background-image="assets/Part01_Map.jpg">
+        </section>
+        <section data-state="planet" data-transition="slide" data-background-image="assets/Part01_Map.jpg">
+          <section data-transition="slide" data-state="start"></section>
 					<section data-state="animate"></section>
 					<aside class="notes">
 							<div>“THANK GOODNESS YOU ARE HERE!”, a voice yells. “It’s been days and the alerts keep growing and we aren’t sure why and it’s not stopping. And I didn’t know if anyone would see the distress signal.”</div>
 							<div>The ECMIAN stares, wide-eyed and hopeful, at you.</div>
 							<div>“Oh, I should introduce myself. I’m W. Orld, Chief Operating Officer of ECMA. Usually I wouldn’t need to send out a distress signal but our engineers are at JSConf Earth and the reports keep coming and I… I need help.”</div>
-							<div>“Hello, W. Orld. I saw the distress signal and I’m happy to help however I can. What are the reports you spoke of?”</div>
-							<div>W. Orld opens what appears to be a book but is soon revealed to be an electronic map. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports but it appears some are out of order. But others are working as expected. It’s throwing various systems into chaos.”</div>									
+							<div>“I’m happy to help however I can.”</div>						
 						</aside>
 				</section>
 				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
@@ -76,13 +77,11 @@
 							<div>So which do you visit first?</div>								
 						</aside>
 				</section>
-				<section data-state="title bar" class="center" id="foobazbar" data-transition="fade-in">
-						<h2>Part 2: The FooBaz Bar</h2>
+				<section data-state="bar" id="bar" data-background-image="assets/Part02_TheFooBazBar.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 2: The FooBaz Bar</h2>
 					</section>
-				<section data-state="bar" data-background-image="assets/Part02_TheFooBazBar.jpg">
-					<section data-state="start"></section>
-					<section data-state="middle"></section>
-					<section data-state="end"></section>
+					<section data-state="animate"></section>
 					<aside class="notes">
 						<div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
 						<div>“Hello?”</div>		
@@ -98,84 +97,92 @@
 						<div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
 					</aside>
 				</section>
-				<section data-signal="code bar" class="center">
-					<section>
-						<pre>
-							<code class="hljs javascript" data-trim data-line-numbers>
-                let drinks = [];
+				<section data-state="code bar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers>
+              let drinks = [];
 
-                function addToOrder(drink) {
-                  drinks.push(drink);
-                };
-  
-                function completeOrder() {	
-                  for (let drink of drinks) {
-                    makeDrink(drink);
-                  }
-  
-                  sendOrderToTable();
-                }
-							</code>
-						</pre>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
-                let drinks = [];
+              function addToOrder(drink) {
+                drinks.push(drink);
+              };
 
-                function addToOrder(drink) {
-                  drinks.push(drink);
-                };
-  
-                function completeOrder() {	
-                  for (let drink of drinks) {
-                    makeDrink(drink);
-                  }
-  
-                  sendOrderToTable();
+              function completeOrder() {	
+                for (let drink of drinks) {
+                  makeDrink(drink);
                 }
-							</code>
-						</pre>
-					</section>
-				</section>
-				<section data-state="title library" class="center" id="library" data-transition="fade-in">
-					<h2>Part 2: The Library</h2>
-				</section>
-				<section data-state="library" data-background-image="assets/Part02_TheLibrary.jpg">
-					<section data-state="start"></section>
+
+                sendOrderToTable();
+              }
+            </code>
+          </pre>
+        </section>
+        <section class="center" data-state="code bar">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
+              let drinks = [];
+
+              function addToOrder(drink) {
+                drinks.push(drink);
+              };
+
+              function completeOrder() {	
+                for (let drink of drinks) {
+                  makeDrink(drink);
+                }
+
+                sendOrderToTable();
+              }
+            </code>
+          </pre>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 86</span>
+          </div>
+          <p>“The <b>for..of statement</b> creates a loop iterating over iterable objects, including: String, Array, Map, Set, and other iterables.”</p>
+          <p>It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.</p>
+          <pre><code>
+            for (variable of iterable) {
+              statement
+            }
+          </code></pre>
+        </section>
+				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 2: The Library</h2>
+          </section>
 					<section data-state="animate"></section>
 				</section>
-				<section data-signal="code library" class="center">
-					<section>
-						<pre>
-							<code class="hljs javascript" data-trim data-noescape data-line-numbers>
-								let books = [];
-							</code>
-						</pre>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs javascript" data-trim data-noescape data-line-numbers="8, 9, 10">
-                let drinks = [];
+				<section data-state="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+              let books = [];
+            </code>
+          </pre>
+        </section>
+        <section data-signal="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="8, 9, 10">
+              let drinks = [];
 
-                function addToOrder(drink) {
-                  drinks.push(drink);
-                };
+              function addToOrder(drink) {
+                drinks.push(drink);
+              };
 
-                function completeOrder() {	
-                  for (let drink of drinks) {
-                    makeDrink(drink);
-                  }
-
-                  sendOrderToTable();
+              function completeOrder() {	
+                for (let drink of drinks) {
+                  makeDrink(drink);
                 }
 
-                addToOrder("beer");
-                addToOrder("water");
-							</code>
-						</pre>
-					</section>
-				</section>
+                sendOrderToTable();
+              }
+
+              addToOrder("beer");
+              addToOrder("water");
+            </code>
+          </pre>
+        </section>
 				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
 					<a class="choose laundry" href="#/bubblesortlaundry">Bubblesort Laundry</a>
 					<a class="choose salad" href="#/saladassembly">Salad Assembly</a>
@@ -183,11 +190,10 @@
 						<!-- Notes -->
 					</aside>
 				</section>
-				<section data-state="title laundry" class="center" id="laundry" data-transition="fade-in">
-					<h2>Part 3: Bubblesort Laundry</h2>
-				</section>
-				<section data-state="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
-					<section data-state="start"></section>
+				<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 3: Bubblesort Laundry</h2>
+          </section>
 					<section data-state="animate"></section>
         </section>
         <section data-signal="code laundry" class="center">
@@ -199,11 +205,70 @@
             </pre>
           </section>
         </section>
-				<section data-state="title salad" class="center" id="salad" data-transition="fade-in">
-						<h2>Part 3: Salad Assembly</h2>
-					</section>
-				<section data-state="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
-					<section data-state="start"></section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 132</span>
+          </div>
+          <p>The <b>spread operator</b> allows an <a>iterable</a> to expand in places where 0 or more elements are expected.</p>
+          <pre><code>
+            [...iterable]
+
+            const a = [1, 2, 3];
+            const b = [4, 5, 6];
+            
+            const numbers = [...a, ...b];
+            // [1, 2, 3, 4, 5, 6]
+            
+            const letters = [...'abc', ...'def'];
+            // ['a', 'b', 'c', 'd', 'e', 'f']
+          </code></pre>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 170</span>
+          </div>
+          <p>In order to be iterable, an object must implement the iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a iterator key available via constant <b>Symbol.iterator</b>.</p>
+          <pre><code>
+            const iterable = {
+              [Symbol.iterator]: function() {
+                // Returns an iterator
+              },
+            };
+          </code></pre>
+        </section>
+        <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 171</span>
+            </div>
+            <p>Whenever an object needs to be iterated (such as at the beginning of a for..of loop or when paired with the spread operator), its iterator method is called, and the returned iterator is used to obtain the values to be iterated.</p>
+            <pre><code>
+              const iterable = {
+                [Symbol.iterator]: function() {
+                  // Returns an iterator
+                },
+              };
+
+              // iterable[Symbol.iterator]()
+
+              for (variable of iterable) {
+                statement
+              }
+
+              [...iterable]
+            </code></pre>
+          </section>
+				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+					<a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section data-state="salad" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 3: Salad Assembly</h2>
+          </section>
 					<section data-state="animate"></section>
         </section>
         <section data-signal="code salad" class="center">
@@ -215,8 +280,10 @@
             </pre>
           </section>
         </section>
-				<section data-state="cablecar" data-background-image="assets/Part04_CableCar.jpg">
-					<section data-state="start"></section>
+				<section data-state="cablecar" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 4: The Cablecar</h2>
+          </section>
 					<section data-state="animate"></section>
         </section>
         <section data-signal="code cablecar" class="center">
@@ -228,8 +295,8 @@
             </pre>
           </section>
         </section>
-        <section data-state="revert" data-transition="fade-in">
-          <h2>Part 5: The Revert</h2>
+        <section data-state="revert" class="center" data-transition="fade-in">
+          <h2 class="light-effect-special">Part 5: The Revert</h2>
         </section>
 			</div>
 		</div>
