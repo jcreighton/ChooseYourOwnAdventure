@@ -58,24 +58,29 @@
 					</section>
         </section>
         <section data-state="planet" data-transition="slide" data-background-image="assets/Part01_Map.jpg">
-          <section data-transition="slide" data-state="start"></section>
-					<section data-state="animate"></section>
-					<aside class="notes">
-							<div>“THANK GOODNESS YOU ARE HERE!”, a voice yells. “It’s been days and the alerts keep growing and we aren’t sure why and it’s not stopping. And I didn’t know if anyone would see the distress signal.”</div>
-							<div>The ECMIAN stares, wide-eyed and hopeful, at you.</div>
-							<div>“Oh, I should introduce myself. I’m W. Orld, Chief Operating Officer of ECMA. Usually I wouldn’t need to send out a distress signal but our engineers are at JSConf Earth and the reports keep coming and I… I need help.”</div>
-							<div>“I’m happy to help however I can.”</div>						
-						</aside>
+          <section data-transition="slide" data-state="start">
+            <aside class="notes">
+              <div>“THANK GOODNESS YOU ARE HERE!”, a voice yells. “It’s been days and the alerts keep growing and we aren’t sure why and it’s not stopping. And I didn’t know if anyone would see the distress signal.”</div>
+              <div>The ECMIAN stares, wide-eyed and hopeful, at you.</div>			
+            </aside>
+          </section>
+          <section data-state="animate">
+            <aside class="notes">
+              <div>“Oh, I should introduce myself. I’m W. Orld, Chief Operating Officer of ECMA. Usually I wouldn’t need to send out a distress signal but our engineers are at JSConf Earth and the reports keep coming and I… I need help.”</div>	
+              <div>You assure W.Orld that you are there for that exact purpose. To help.</div>
+              <div>You are ready, with your JavaScript manual at hand, to solve the problem.</div>
+            </aside>
+          </section>
 				</section>
 				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
 					<a class="choose bar" href="#/foobazbar">FooBaz Bar</a>
 					<a class="choose library" href="#/library">The Library</a>
 					<aside class="notes">
-							<div>W. Orld opens what appears to be a book but is soon revealed to be an electronic map. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports but it appears some are out of order. But others are working as expected. It’s throwing various systems into chaos.”</div>		
-							<div>“You can take this with you,” offers W. Orld. “Two of the reports are nearby, The Library and the FooBaz Bar, if you’d like to start your investigation there.”</div>	
-							<div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>
-							<div>So which do you visit first?</div>								
-						</aside>
+            <div>W. Orld hands you a tablet. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports. But others are working as expected. It’s throwing various systems into chaos.”</div>		
+            <div>“You can take this with you,” offers W. Orld. “Two of the reports are nearby, The Library and the FooBaz Bar, if you’d like to start your investigation there.”</div>	
+            <div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>
+            <div>So which do you visit first?</div>								
+          </aside>
 				</section>
 				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
 					<section class="center" data-state="start">
@@ -115,6 +120,10 @@
               }
             </code>
           </pre>
+          <aside class="notes">
+            The code looks straightforward. Initialize an array to hold the drinks. AddToOrder pushes drinks into that array.
+            And then in completeOrder... [CLICK]
+          </aside>
         </section>
         <section class="center" data-state="code bar">
           <pre>
@@ -134,6 +143,9 @@
               }
             </code>
           </pre>
+          <aside class="notes">
+            Your eye does catch on line 8. For drink of drinks... you aren't too familiar with this syntax. You open your manual for answers.
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -147,62 +159,230 @@
               statement
             }
           </code></pre>
+          <aside class="notes">
+            Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
+            Well, that's all interesting but let's see what's happening with this array.
+          </aside>
         </section>
-				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
-					<section class="center" data-state="start">
-            <h2 class="light-effect-special">Part 2: The Library</h2>
-          </section>
-					<section data-state="animate"></section>
-				</section>
-				<section data-state="code library" class="center">
+        <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-              let books = [];
-            </code>
-          </pre>
-        </section>
-        <section data-signal="code library" class="center">
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="8, 9, 10">
+            <code class="hljs javascript" data-trim>
               let drinks = [];
 
               function addToOrder(drink) {
                 drinks.push(drink);
               };
 
-              function completeOrder() {	
+              function completeOrder() {
+                console.log(drinks); // ["beer", "water"]	
                 for (let drink of drinks) {
+                  console.log(drink); // undefined
                   makeDrink(drink);
                 }
 
                 sendOrderToTable();
               }
-
-              addToOrder("beer");
-              addToOrder("water");
             </code>
           </pre>
+          <aside class="notes">
+            Huh, that's...unexpected. The array is fine. But looping through it, it appears to hold no values.
+            Maybe it's the for..of? 
+          </aside>
         </section>
-				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+        <section class="center" data-state="code bar">
+          <a href="#/map-2">
+          <pre>
+            <code class="hljs javascript" data-trim>
+              let drinks = [];
+
+              function addToOrder(drink) {
+                drinks.push(drink);
+              };
+
+              function completeOrder() {
+                drinks.forEach(drink => {
+                  makeDrink(drink);
+                });
+
+                sendOrderToTable();
+              }
+            </code>
+          </pre>
+        </a>
+          <aside class="notes">
+            You replace the loop with forEach and order a new drink. This time, a drink appears at your order station.
+            This is strange. Are the array problems related to for..of?
+            You'll need to look at some more reports to confirm your suspicions.
+            [CLICK THE CODE BOX]
+          </aside>
+        </section>
+				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
+					<section class="center" data-state="start">
+            <h2 class="light-effect-special">Part 2: The Library</h2>
+          </section>
+          <section data-state="animate"></section>
+          <aside class="notes">
+            <div>“It’s the book sorter,” the Head Librarian explains. You are both walking down a hallway with rows and rows of bookshelves on either side. “It’s unable to process the books.”</div>
+            <div>The librarian turns left down a particular row and stops in front of a machine. “This is the sorter. You put the returned books here, “ the librarian points. “When the machine receives new books, it scans them, and sorts them into the basket for their section.”</div> 
+            <div>The librarian selects a few books from the closest shelf and loads them into the compartment. “These are all romance books, so they should be sorted into the Romance basket. But…”</div>
+            <div>The machine whirs. You can see on its screen that the books have been scanned. Images of the book covers appear on the machine’s screen. But then the whirring stops. The machine issues a quiet “beep!” and then is silent.</div>
+            <div>“The screen is indicating the compartment is empty,” you observe.</div>
+            <div>“Yes, it’s been quite frustrating.” The librarian taps on the tablet in her arm. “This is the code. We haven’t changed it at all.”</div> 
+          </aside>
+        </section>
+				<section data-state="code library" class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers>
+                  let books = [];
+  
+                  function scanBook(book) {
+                    book.push(book);
+                  };
+    
+                  function sortBooks() {	
+                    for (let book of books) {
+                      sendToBasket(book.section, book);
+                    }
+                  }
+              </code>
+            </pre>
+            <aside class="notes">
+              The code looks straightforward. Initialize an array to hold the books. Each time the machine scans a book it adds to the array.
+              And then in sortBooks... [CLICK]
+            </aside>
+          </section>
+          <section class="center" data-state="code library">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
+                  let books = [];
+  
+                  function scanBook(book) {
+                    book.push(book);
+                  };
+    
+                  function sortBooks() {	
+                    for (let book of books) {
+                      sendToBasket(book.section, book);
+                    }
+                  }
+              </code>
+            </pre>
+            <aside class="notes">
+              Your eye does catch on line 8. For book of books... you aren't too familiar with this syntax so you open your manual for answers.
+            </aside>
+          </section>
+          <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 86</span>
+            </div>
+            <p>“The <b>for..of statement</b> creates a loop iterating over iterable objects, including: String, Array, Map, Set, and other iterables.”</p>
+            <p>It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.</p>
+            <pre><code>
+              for (variable of iterable) {
+                statement
+              }
+            </code></pre>
+            <aside class="notes">
+              Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
+              Well, that's all interesting but let's see what's happening with this array.
+            </aside>
+          </section>
+          <section class="center" data-state="code library">
+            <pre>
+              <code class="hljs javascript" data-trim>
+                  let books = [];
+  
+                  function scanBook(book) {
+                    book.push(book);
+                  };
+    
+                  function sortBooks() {	
+                    console.log(books); // [{ title: "Love in the Time of JavaScript", section: "romance" }]
+                    for (let book of books) {
+                      sendToBasket(book.section, book); // Uncaught ReferenceError: book is not defined
+                    }
+                  }
+              </code>
+            </pre>
+            <aside class="notes">
+              Huh, that's...unexpected. There's a book in the machine. So why is it saying it's undefined?
+              Maybe it's the for..of? 
+            </aside>
+          </section>
+          <section class="center" data-state="code library">
+            <a href="#/map-2">
+            <pre>
+              <code class="hljs javascript" data-trim>
+                  let books = [];
+  
+                  function scanBook(book) {
+                    book.push(book);
+                  };
+    
+                  function sortBooks() {	
+                    books.forEach(book => {
+                      sendToBasket(book.section, book);
+                    });
+                  }
+              </code>
+            </pre>
+          </a>
+          <aside class="notes">
+            You replace the loop with forEach and restart the machine, scanning the book again. This time, there are no errors. The machine sorts it into the Romance basket.
+            How curious. Maybe for..of isn't working properly.
+            You'll need to look at some more reports to confirm your suspicions.
+            [CLICK]
+          </aside>
+        </section>
+				<section data-state="map" id="map-2" data-background-image="assets/Part01_Planet.jpg">
 					<a class="choose laundry" href="#/bubblesortlaundry">Bubblesort Laundry</a>
 					<a class="choose salad" href="#/saladassembly">Salad Assembly</a>
 					<aside class="notes">
-						<!-- Notes -->
+						The next two closets reports are the BubbleSort Laundry and Salad Assembly. A difficult choice.
 					</aside>
 				</section>
 				<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Bubblesort Laundry</h2>
           </section>
-					<section data-state="animate"></section>
+          <section data-state="animate"></section>
+          <aside class="notes">
+            <div>The proprietor of the Bubble Sort Laundry is happy you’ve arrived.</div>
+            <div>“It’s been a nightmare. We can’t figure out why our fold machine is broken. The errors keep saying the machine is empty!”</div>
+            <div>You walk past loud washing machines, swirling with bubbles and clothing.</div>
+            <div>“Here is where we sort the laundry into three batches: darks, lights and brights” explains the proprietor. A worker loads a large bin of clothing into a machine with three clear tubes at the top. At the press of a button, clothes shoot through the tubes.</div>
+            <div>“You can see here that the dark clothing is pushed along this tube to the appropriate machine. Same with the lights and brights.”</div>
+            <div>More clothes shoot through the tubes.</div>
+            <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
+            <div>The screen on the folder is pulsing with an error message: No items detected.</div>
+            <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
+          </aside>
         </section>
         <section data-signal="code laundry" class="center">
           <section>
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                let books = [];
+                /* 
+                  loads = {
+                    darks: [ // items ],
+                    lights: [ // items ],
+                    brights: [ // items ],
+                  };
+                */
+
+                const { darks, lights, brights } = loads;
+
+                fold([...darks, ...lights, ...brights]);
+
+                function fold(items) {
+                  items.forEach(item => foldItem(item));
+                }
               </code>
             </pre>
+            <aside class="notes">
+              But a quick scan reveals this code doesn't use a for..of loop. So what's the problem?
+            </aside>
           </section>
         </section>
         <section data-state="manual" class="center">
@@ -244,9 +424,8 @@
             <span>pg 171</span>
           </div>
           <p>Whenever an object needs to be iterated (such as at the beginning of a for..of loop or when paired with the spread operator), its iterator method is called, and the returned iterator is used to obtain the values to be iterated.</p>
+          <p>The examples below first call <b>iterable[Symbol.iterator]()</b> to retrieve the iterator before iterating through the iterable's values.</p>
           <pre><code>
-            // iterable[Symbol.iterator]()
-
             for (variable of iterable) {
               statement
             }
