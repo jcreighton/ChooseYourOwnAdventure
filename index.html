@@ -44,7 +44,10 @@
 					</section>
 					<section>
 						<h2 class="light-effect">What happens next:</h2>
-						<div class="light-effect">a choose-your-own-adventure with iterators</div>
+            <div class="light-effect">a choose-your-own-adventure with iterators</div>
+            <aside class="notes">
+            
+            </aside>
 					</section>
 					<section data-state="intro" data-transition="fade-in">
             <h2 class="light-effect">Part 1: ECMA</h2>
@@ -86,21 +89,22 @@
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The FooBaz Bar</h2>
 					</section>
-					<section data-state="animate"></section>
-					<aside class="notes">
-						<div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
-						<div>“Hello?”</div>		
-						<div>You can see the bar is covered in a mess of wires and cables.</div>
-						<div>“Hello?”</div>
-						<div>The bartender pops up suddenly, looking tired and surprised.</div>			
-						<div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
-						<div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
-						<div>“Oh,” they respond. “Let me show you!”</div>
-						<div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
-						<div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
-						<div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
-						<div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
-					</aside>
+					<section data-state="animate">
+            <aside class="notes">
+                <div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
+                <div>“Hello?”</div>		
+                <div>You can see the bar is covered in a mess of wires and cables.</div>
+                <div>“Hello?”</div>
+                <div>The bartender pops up suddenly, looking tired and surprised.</div>			
+                <div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
+                <div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
+                <div>“Oh,” they respond. “Let me show you!”</div>
+                <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
+                <div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
+                <div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
+                <div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
+              </aside>
+          </section>
 				</section>
 				<section data-state="code bar" class="center">
           <pre>
@@ -166,7 +170,7 @@
         </section>
         <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim>
+            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
               let drinks = [];
 
               function addToOrder(drink) {
@@ -192,7 +196,7 @@
         <section class="center" data-state="code bar">
           <a href="#/map-2">
           <pre>
-            <code class="hljs javascript" data-trim>
+            <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
               let drinks = [];
 
               function addToOrder(drink) {
@@ -220,15 +224,17 @@
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The Library</h2>
           </section>
-          <section data-state="animate"></section>
-          <aside class="notes">
-            <div>“It’s the book sorter,” the Head Librarian explains. You are both walking down a hallway with rows and rows of bookshelves on either side. “It’s unable to process the books.”</div>
-            <div>The librarian turns left down a particular row and stops in front of a machine. “This is the sorter. You put the returned books here, “ the librarian points. “When the machine receives new books, it scans them, and sorts them into the basket for their section.”</div> 
-            <div>The librarian selects a few books from the closest shelf and loads them into the compartment. “These are all romance books, so they should be sorted into the Romance basket. But…”</div>
-            <div>The machine whirs. You can see on its screen that the books have been scanned. Images of the book covers appear on the machine’s screen. But then the whirring stops. The machine issues a quiet “beep!” and then is silent.</div>
-            <div>“The screen is indicating the compartment is empty,” you observe.</div>
-            <div>“Yes, it’s been quite frustrating.” The librarian taps on the tablet in her arm. “This is the code. We haven’t changed it at all.”</div> 
-          </aside>
+          <section data-state="animate">
+            <aside class="notes">
+                <div>“It’s the book sorter,” the Head Librarian explains. You are both walking down a hallway with rows and rows of bookshelves on either side. “It’s unable to process the books.”</div>
+                <div>The librarian turns left down a particular row and stops in front of a machine. “This is the sorter. You put the returned books here, “ the librarian points. “When the machine receives new books, it scans them, and sorts them into the basket for their section.”</div> 
+                <div>The librarian selects a few books from the closest shelf and loads them into the compartment. “These are all romance books, so they should be sorted into the Romance basket. But…”</div>
+                <div>The machine whirs. You can see on its screen that the books have been scanned. Images of the book covers appear on the machine’s screen. But then the whirring stops. The machine issues a quiet “beep!” and then is silent.</div>
+                <div>“The screen is indicating the compartment is empty,” you observe.</div>
+                <div>“Yes, it’s been quite frustrating.”</div>
+                <div>"Here, this is the code. We haven’t changed it at all.”</div> 
+              </aside>
+          </section>
         </section>
 				<section data-state="code library" class="center">
             <pre>
@@ -290,7 +296,7 @@
           </section>
           <section class="center" data-state="code library">
             <pre>
-              <code class="hljs javascript" data-trim>
+              <code class="hljs javascript" data-trim data-line-numbers="8,9,11,12">
                   let books = [];
   
                   function scanBook(book) {
@@ -298,9 +304,11 @@
                   };
     
                   function sortBooks() {	
-                    console.log(books); // [{ title: "Love in the Time of JavaScript", section: "romance" }]
+                    console.log(books); 
+                    // [{ title: "Love in the Time of JavaScript", section: "romance" }]
                     for (let book of books) {
-                      sendToBasket(book.section, book); // Uncaught ReferenceError: book is not defined
+                      sendToBasket(book.section, book); 
+                      // Uncaught ReferenceError: book is not defined
                     }
                   }
               </code>
@@ -313,7 +321,7 @@
           <section class="center" data-state="code library">
             <a href="#/map-2">
             <pre>
-              <code class="hljs javascript" data-trim>
+              <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
                   let books = [];
   
                   function scanBook(book) {
@@ -346,20 +354,21 @@
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Bubblesort Laundry</h2>
           </section>
-          <section data-state="animate"></section>
-          <aside class="notes">
-            <div>The proprietor of the Bubble Sort Laundry is happy you’ve arrived.</div>
-            <div>“It’s been a nightmare. We can’t figure out why our fold machine is broken. The errors keep saying the machine is empty!”</div>
-            <div>You walk past loud washing machines, swirling with bubbles and clothing.</div>
-            <div>“Here is where we sort the laundry into three batches: darks, lights and brights” explains the proprietor. A worker loads a large bin of clothing into a machine with three clear tubes at the top. At the press of a button, clothes shoot through the tubes.</div>
-            <div>“You can see here that the dark clothing is pushed along this tube to the appropriate machine. Same with the lights and brights.”</div>
-            <div>More clothes shoot through the tubes.</div>
-            <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
-            <div>The screen on the folder is pulsing with an error message: No items detected.</div>
-            <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
-          </aside>
+          <section data-state="animate">
+            <aside class="notes">
+              <div>The proprietor of the Bubble Sort Laundry is happy you’ve arrived.</div>
+              <div>“It’s been a nightmare. We can’t figure out why our fold machine is broken. The errors keep saying the machine is empty!”</div>
+              <div>You walk past loud washing machines, swirling with bubbles and clothing.</div>
+              <div>“Here is where we sort the laundry into three batches: darks, lights and brights” explains the proprietor. A worker loads a large bin of clothing into a machine with three clear tubes at the top. At the press of a button, clothes shoot through the tubes.</div>
+              <div>“You can see here that the dark clothing is pushed along this tube to the appropriate machine. Same with the lights and brights.”</div>
+              <div>More clothes shoot through the tubes.</div>
+              <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
+              <div>The screen on the folder is pulsing with an error message: No items detected.</div>
+              <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
+            </aside>
+          </section>
         </section>
-        <section data-signal="code laundry" class="center">
+        <section data-state="code laundry" class="center">
           <section>
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
@@ -381,7 +390,39 @@
               </code>
             </pre>
             <aside class="notes">
-              But a quick scan reveals this code doesn't use a for..of loop. So what's the problem?
+              <div>Except... there's no for..of loop here. Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
+              <div>The spread operator spreads out the elements from one array into a new array.</div>
+              <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
+            </aside>
+          </section>
+          <section>
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="10,11,16,17">
+                /* 
+                  loads = {
+                    darks: [ // items ],
+                    lights: [ // items ],
+                    brights: [ // items ],
+                  };
+                */
+
+                const { darks, lights, brights } = loads;
+                console.log(darks, lights, brights);
+                // ['shirt', 'pants'], ['skirt'], ['socks', 't-shirt']
+
+                fold([...darks, ...lights, ...brights]);
+
+                function fold(items) {
+                  console.log(items);
+                  // []
+                  items.forEach(item => foldItem(item));
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              <div>You throw in some console logs and...what...is going...on?</div>
+              <div>You're familiar with the spread operator, those three dots in front of each of those arrays.</div>
+              <div>Unless...</div>
             </aside>
           </section>
         </section>
@@ -403,6 +444,29 @@
             const letters = [...'abc', ...'def'];
             // ['a', 'b', 'c', 'd', 'e', 'f']
           </code></pre>
+          <aside class="notes">
+            <div>The <b>spread operator</b> allows an <b>*iterable*</b> to expand in places where 0 or more elements are expected.</div>
+            <div>for..of worked with iterables too.</div>
+            <div>And changing that to an Array method worked so...</div>
+          </aside>
+        </section>
+        <section data-state="code laundry" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="3">
+              const { darks, lights, brights } = loads;
+
+              fold = [].concat(dark).concat(lights).concat(brights);
+
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            <div>You refactor the code to use the Array.concat method.</div>
+            <div>And...it works! The restarted machine doesn't throw an error. It starts its work.</div>
+            <div>You suspect the issue isn't the for..of or spread operators themselves. But the iterables. Both work on iterables.</div>
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -417,30 +481,25 @@
               },
             };
           </code></pre>
+          <aside class="notes">
+            Back in your manual, you find what you're looking for.
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
             <span>JavaScript: All the Parts</span>
             <span>pg 171</span>
           </div>
-          <p>Whenever an object needs to be iterated (such as at the beginning of a for..of loop or when paired with the spread operator), its iterator method is called, and the returned iterator is used to obtain the values to be iterated.</p>
-          <p>The examples below first call <b>iterable[Symbol.iterator]()</b> to retrieve the iterator before iterating through the iterable's values.</p>
+          <p>To iterate through an iterable (for example, using the spread operator or a for..of loop), its iterator method is called and the returned iterator is used to obtain the values.</p>
           <pre><code>
+            /* iterable[Symbol.iterator]() */
+
             for (variable of iterable) {
               statement
             }
 
             [...iterable]
           </code></pre>
-        </section>
-        <section data-signal="code laundry" class="center">
-          <section>
-            <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                // Accessing the iterable[Symbol.iterator]()
-              </code>
-            </pre>
-          </section>
         </section>
 				<section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
 					<a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
@@ -451,28 +510,181 @@
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Salad Assembly</h2>
           </section>
-					<section data-state="animate"></section>
+					<section data-state="animate">
+            <aside class="notes">
+              <div>The proprietor of Salad Assembly is happy you’ve arrived.</div>
+              <div>“It’s been a nightmare. We had to switch to manual salad creation.”</div>
+              <div>You walk past loud washing machines, swirling with bubbles and clothing.</div>
+              <div>“Here is where we sort the laundry into three batches: darks, lights and brights” explains the proprietor. A worker loads a large bin of clothing into a machine with three clear tubes at the top. At the press of a button, clothes shoot through the tubes.</div>
+              <div>“You can see here that the dark clothing is pushed along this tube to the appropriate machine. Same with the lights and brights.”</div>
+              <div>More clothes shoot through the tubes.</div>
+              <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
+              <div>The screen on the folder is pulsing with an error message: No items detected.</div>
+              <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
+            </aside>
+          </section>
         </section>
-        <section data-signal="code salad" class="center">
-          <section>
+        <section data-state="code salad" class="center">
+            <section>
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+                  /* 
+                    ingredients = {
+                      base: [ 'lettuce' ],
+                      proteins: [ 'chicken', 'shrimp' ],
+                      toppings: [ 'avocado', 'tomato', 'feta' ],
+                    };
+                  */
+  
+                  const { base, proteins, toppings } = ingredients;
+  
+                  calculatePrice([...base, ...proteins, ...toppings]);
+  
+                  function calculatePrice(items) {
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  }
+                </code>
+              </pre>
+              <aside class="notes">
+                Except... there's no for..of loop here. 
+              </aside>
+            </section>
+            <section>
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="10,11,16,17">
+                    /* 
+                    ingredients = {
+                      base: [ 'lettuce' ],
+                      proteins: [ 'chicken', 'shrimp' ],
+                      toppings: [ 'avocado', 'tomato', 'feta' ],
+                    };
+                  */
+  
+                  const { base, toppings } = ingredients;
+  
+                  calculatePrice([...base, ...proteins, ...toppings]);
+  
+                  function calculatePrice(items) {
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  }
+                </code>
+              </pre>
+              <aside class="notes">
+                <div>You throw in some console logs and...what...is going...on?</div>
+                <div>You're familiar with the spread operator, those three dots in front of each of those arrays.</div>
+                <div>The spread operator spreads out the elements from one array into a new array.</div>
+                <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
+                <div>Unless...</div>
+              </aside>
+            </section>
+          </section>
+          <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 132</span>
+            </div>
+            <p>The <b>spread operator</b> allows an <a>iterable</a> to expand in places where 0 or more elements are expected.</p>
+            <pre><code>
+              [...iterable]
+  
+              const a = [1, 2, 3];
+              const b = [4, 5, 6];
+              
+              const numbers = [...a, ...b];
+              // [1, 2, 3, 4, 5, 6]
+              
+              const letters = [...'abc', ...'def'];
+              // ['a', 'b', 'c', 'd', 'e', 'f']
+            </code></pre>
+            <aside class="notes">
+              <div>The <b>spread operator</b> allows an <b>*iterable*</b> to expand in places where 0 or more elements are expected.</div>
+              <div>for..of worked with iterables too.</div>
+              <div>And changing that to an Array method worked so...</div>
+            </aside>
+          </section>
+          <section data-state="code salad" class="center">
             <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                let books = [];
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="3">  
+                  const { base, proteins, toppings } = ingredients;
+  
+                  calculatePrice([].concat(base).concat(proteins).concat(toppings));
+  
+                  function calculatePrice(items) {
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  }
               </code>
             </pre>
+            <aside class="notes">
+              <div>You refactor the code to use the Array.concat method.</div>
+              <div>And...it works! The restarted machine doesn't throw an error. It starts its work.</div>
+              <div>You suspect the issue isn't the for..of or spread operators themselves. But the iterables. Both work on iterables.</div>
+            </aside>
           </section>
+          <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 170</span>
+            </div>
+            <p>In order to be iterable, an object must implement the iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a iterator key available via constant <b>Symbol.iterator</b>.</p>
+            <pre><code>
+              const iterable = {
+                [Symbol.iterator]: function() {
+                  // Returns an iterator
+                },
+              };
+            </code></pre>
+          </section>
+          <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 171</span>
+            </div>
+            <p>To iterate through an iterable (for example, using the spread operator or a for..of loop), its iterator method is called and the returned iterator is used to obtain the values.</p>
+            <pre><code>
+              /* iterable[Symbol.iterator]() */
+  
+              for (variable of iterable) {
+                statement
+              }
+  
+              [...iterable]
+            </code></pre>
+            <aside class="notes">
+              Wait, you think, does this mean you can access an array's iterator method? And if so...does that mean you can overwrite it?
+            </aside>
+          </section>
+        <section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
+          <a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
+          <aside class="notes">
+            But there's no time to answer your thoughts. An urgent alert is flashing on the map. You're needed elsewhere.
+          </aside>
         </section>
 				<section data-state="cablecar" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 4: The Cablecar</h2>
           </section>
-					<section data-state="animate"></section>
+          <section data-state="animate">
+            <aside class="notes">
+              <div>The cable car is located at the far side of a mountain. “It starts here,” the engineer tells you, pointing to a small station at the base of the mountain. “And stops twice at locations on the way to the topmost station there.”</div>
+              <div>You can see the three stations above you. The first and second stops at what look like small villages. “People live there for the views and commute via the cable car. But it’s stopped working,” the engineer explains. </div>
+              <div>“Normally, it stops. Offloads and onboards passengers and continues to the next stop. Now it thinks there are no stations to travel to and from.”</div>
+              <div>You see crowds of ECMIANs at the starting station. No one can get up, or down, the mountain.</div>
+              <div>You are soon peering into the cable car’s code.</div>            
+            </aside>
+          </section>
         </section>
-        <section data-signal="code cablecar" class="center">
+        <section data-state="code cablecar" class="center">
           <section>
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                let books = [];
+                import { openDoors, closeDoors, goTo } from 'cablecar';
+                const forward = ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                const reverse = forward.reverse();
+                const stops = [...forward, ...reverse];
+
+                const track = stops.values();
+
+                
               </code>
             </pre>
           </section>

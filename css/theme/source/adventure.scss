@@ -48,6 +48,10 @@ $headingFont: 'Do Hyeon', sans-serif;
 }
 
 .manual {
+	a {
+		color: blue !important;
+	}
+
 	.present {
 		background: #eee;
 		color: black;
@@ -79,7 +83,7 @@ $headingFont: 'Do Hyeon', sans-serif;
 .map {
 	.alert {
 		background-color: tomato;
-		padding: 16px;
+		padding: 32px;
 		color: white !important;
 		border-radius: 2px;
 	}

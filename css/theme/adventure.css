@@ -30,6 +30,9 @@
 .reveal pre code {
   max-height: none !important; }
 
+.manual a {
+  color: blue !important; }
+
 .manual .present {
   background: #eee;
   color: black;
@@ -50,7 +53,7 @@
 
 .map .alert {
   background-color: tomato;
-  padding: 16px;
+  padding: 32px;
   color: white !important;
   border-radius: 2px; }
 
