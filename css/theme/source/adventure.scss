@@ -40,6 +40,7 @@ $headingFont: 'Do Hyeon', sans-serif;
 }
 
 .reveal pre {
+	margin: 0 auto !important;
 	box-shadow: none !important;
 }
 
@@ -86,6 +87,20 @@ $headingFont: 'Do Hyeon', sans-serif;
 		padding: 32px;
 		color: white !important;
 		border-radius: 2px;
+	}
+
+	.choose-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		width: 400px;
+		height: 300px;
+		margin: 0 auto;
+
+		.choose {
+			position: relative;
+		}
 	}
 
 	.choose {
@@ -299,7 +314,36 @@ $headingFont: 'Do Hyeon', sans-serif;
 
 .salad.animate {
 	.slide-background-content {
-		// animation: animate-laundry-1 10s linear forwards;
+		animation: animate-salad-center 10s linear forwards,
+			animate-salad-center-center 10s linear 11s forwards,
+			animate-salad-size 10s linear 21s forwards;
+	}
+}
+
+@keyframes animate-salad-center {
+	from { 
+		background-position: top left;
+	}
+	to { 
+		background-position: top center;
+	}
+}
+
+@keyframes animate-salad-center-center {
+	from { 
+		background-position: top center;
+	}
+	to { 
+		background-position: center center;
+	}
+}
+
+@keyframes animate-salad-size {
+	from { 
+		background-size: 200% auto; 
+	}
+	to { 
+		background-size: 100% auto; 
 	}
 }
 
@@ -308,6 +352,13 @@ $headingFont: 'Do Hyeon', sans-serif;
 		background-position: top 10% right;
 		background-size: 220% auto !important;
 	}		
+}
+
+.cablecar.is-done {
+	.slide-background-content {
+		background-position: center center;
+		background-size: 100% auto !important;
+	}
 }
 
 .cablecar.animate {

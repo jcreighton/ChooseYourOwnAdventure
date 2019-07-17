@@ -25,7 +25,8 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
+          <section data-state="cablecar is-done" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+          </section>
 				<section data-state="signal" data-background-image="assets/Part01_Signal.jpg">
 					<section>
 						<h2 class="light-effect">What happens next:</h2>
@@ -46,9 +47,18 @@
 						<h2 class="light-effect">What happens next:</h2>
             <div class="light-effect">a choose-your-own-adventure with iterators</div>
             <aside class="notes">
-            
+              Why iterators?
+              Why choose-your-own-adventure?
+              Iterators are all about what happens *next*
+              Let's practice!
             </aside>
-					</section>
+          </section>
+					<section data-state="map">
+            <div class="choose-container">
+              <a class="choose beach">Beach</a>
+              <a class="choose mountains">Mountains</a>
+            </div>
+          </section>
 					<section data-state="intro" data-transition="fade-in">
             <h2 class="light-effect">Part 1: ECMA</h2>
           </section>
@@ -851,7 +861,7 @@
           </pre>
           <pre>
             <code class="hljs markdown" data-trim>
-                ACCESS ITERATOR?: function() {..}
+                ACCESS ITERATOR?: function [Symbol.iterator]() { .. }
             </code>
           </pre>
           <aside class="notes">
@@ -886,7 +896,7 @@
           </pre>
           <pre>
             <code class="hljs markdown" data-trim>
-              ITERATOR: {
+              ITERATOR: Array Iterator {
                 next: function() { .. }
               }
             </code>
@@ -1130,7 +1140,7 @@
             </pre>
             <pre>
               <code class="hljs markdown" data-trim>
-                  ACCESS ITERATOR?: function() {..}
+                  ACCESS ITERATOR?: function [Symbol.iterator]() { .. }
               </code>
             </pre>
             <aside class="notes">
@@ -1169,7 +1179,7 @@
             </pre>
             <pre>
               <code class="hljs markdown" data-trim>
-                ITERATOR: {
+                ITERATOR: Array Iterator {
                   next: function() { .. }
                 }
               </code>
@@ -1177,7 +1187,7 @@
             <aside class="notes">
             </aside>
           </section>
-          <section class="center">
+          <section data-state="code salad" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
                 const calculatePrice = items => (
@@ -1233,9 +1243,9 @@
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
                 function* stops(direction) {
                   if (direction === 'forward') {
-                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                    yield* ['Zero', 'One', 'Two', 'The Source'];
                   } else {
-                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
+                    yield* ['The Source', 'Two', 'One', 'Zero'];
                   }
                 }
               </code>
@@ -1246,9 +1256,9 @@
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="1">
                 function* stops(direction) {
                   if (direction === 'forward') {
-                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                    yield* ['Zero', 'One', 'Two', 'The Source'];
                   } else {
-                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
+                    yield* ['The Source', 'Two', 'One', 'Zero'];
                   }
                 }
               </code>
@@ -1259,19 +1269,234 @@
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="3, 5">
                 function* stops(direction) {
                   if (direction === 'forward') {
-                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                    yield* ['Zero', 'One', 'Two', 'The Source'];
                   } else {
-                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
+                    yield* ['The Source', 'Two', 'One', 'Zero'];
                   }
                 }
               </code>
             </pre>
           </section>
         </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 230</span>
+          </div>
+          <p>Generator functions are written using the function* syntax. When called initially, generator functions do not execute any of their code, instead returning a type of iterator called a Generator. When the generator's next method is called, the Generator function executes until it encounters the yield keyword.</p>
+          <pre><code data-trim>
+            function* genFn() {
+              yield 1;
+              yield 2;
+            }
+
+            const iterator = genFn();
+            iterator.next(); // { value: 1, done: false }
+            iterator.next(); // { value: 2, done: false }
+            iterator.next(); // { value: undefined, done: true }
+          </code></pre>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="9,10,11">
+              function* stops(direction) {
+                if (direction === 'forward') {
+                  yield* ['Zero', 'One', 'Two', 'The Source'];
+                } else {
+                  yield* ['The Source', 'Two', 'One', 'Zero'];
+                }
+              }
+
+              const track = stops('forward');
+              console.log('STATION: ', track.next());
+              console.log('STATION: ', track.next());
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+              STATION: { value: 'Zero', done: false }
+              STATION: { value: 'One', done: false }
+            </code>
+          </pre>
+          <aside class="notes">
+            Using that example, you try out the stops generator function. You call it to get the iterator and then you call that iterator's next method twice.
+            But this is confusing. You thought it would yield back the array. Instead, it's yielding back the values IN the array.
+          </aside>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 232</span>
+          </div>
+          <p>The <b>yield*</b> expression is used to delegate to another generator or <a>iterable</a>.</p>
+          <pre><code data-trim>
+            function* genFn1() {
+              yield 1;
+            }
+            
+            function* genFn2() {
+              yield* genFn1();
+              yield* [2, 3]
+            }
+            
+            const iterator = genFn2();
+            
+            console.log(iterator.next());
+            // { value: 1, done: false }
+
+            console.log(iterator.next());
+            // { value: 2, done: false }
+          </code></pre>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="1,3">
+              function track(direction) {
+                
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            You create a new function called track. It'll take in the direction of the track.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+              function track(direction) {
+                const stops = {
+                  forward: ['Zero', 'One', 'Two', 'The Source'],
+                  backward: ['The Source', 'Two', 'One', 'Zero'],
+                };  
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+              You save the stop arrays to the outer scope.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="7,8,9,10">
+              function track(direction) {
+                const stops = {
+                  forward: ['Zero', 'One', 'Two', 'The Source'],
+                  backward: ['The Source', 'Two', 'One', 'Zero'],
+                };  
+
+                const iterable = {};
+                iterable[Symbol.iterator] = function() {
+
+                };
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+              Now you create a new iterable.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+              function track(direction) {
+                const stops = {
+                  forward: ['Zero', 'One', 'Two', 'The Source'],
+                  backward: ['The Source', 'Two', 'One', 'Zero'],
+                };  
+
+                const iterable = {};
+                const iterable = {};
+                iterable[Symbol.iterator] = function() {
+                  return {
+                    next: function() {
+
+                    }
+                  }
+                };
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            That iterable returns a new iterable with a next method which will iterator through the values on each call.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+              function track(direction) {
+                const stops = {
+                  forward: ['Zero', 'One', 'Two', 'The Source'],
+                  backward: ['The Source', 'Two', 'One', 'Zero'],
+                };  
+
+                const iterable = {};
+                const iterable = {};
+                iterable[Symbol.iterator] = function() {
+                  let step = 0;
+                  return {
+                    next: function() {
+                      if (step < 4) {
+                        return { value: stops[direction][step++], done: false };
+                      }
+                    }
+                  }
+                };
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            That iterable returns a new iterable with a next method which will iterator through the values on each call.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+              function track(direction) {
+                const stops = {
+                  forward: ['Zero', 'One', 'Two', 'The Source'],
+                  backward: ['The Source', 'Two', 'One', 'Zero'],
+                };  
+
+                const iterable = {};
+                const iterable = {};
+                iterable[Symbol.iterator] = function() {
+                  let step = 0;
+                  return {
+                    next: function() {
+                      if (step < 4) {
+                        return { value: stops[direction][step++], done: false };
+                      } else {
+                        return { value: undefined, done: true };
+                      }
+                    }
+                  }
+                };
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            That iterable returns a new iterable with a next method which will iterator through the values on each call.
+          </aside>
+        </section>
+        <section data-state="code cablecar" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+                import track from './track';
+
+                function* stops(direction) {
+                  yield* track(direction);
+                }
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
+        </section>
+        <section data-state="cablecar is-done" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+        </section>
 
         <!-- CABLECAR END -->
         <section data-state="revert" class="center" data-transition="fade-in">
-          <h2 class="light-effect-special">Part 5: The Revert</h2>
+          <h2 class="light-effect-special">The End</h2>
         </section>
 			</div>
 		</div>
