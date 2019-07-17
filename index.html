@@ -84,7 +84,8 @@
             <div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>
             <div>So which do you visit first?</div>								
           </aside>
-				</section>
+        </section>
+        <!-- BAR START -->
 				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The FooBaz Bar</h2>
@@ -209,7 +210,7 @@
           </section>
           <section class="center" data-state="code bar">
             <pre>
-              <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+              <code class="hljs javascript" data-trim data-line-numbers="8">
                 let orders = [];
           
                 function order(drink, instructions) {
@@ -226,15 +227,18 @@
               </code>
             </pre>
             <pre>
-              <span>Console</span>
-              <code data-trim data-line-numbers>
-                 ORDERS: [['margarita', { salt: false }, 'martini', { shaken: true }]];
+
+              <code class="hljs markdown" data-trim>
+                ORDERS: [
+                  ['margarita', { salt: false }], 
+                  ['martini', { shaken: true }],
+                ]
               </code>
             </pre>
           </section>
         <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+            <code class="hljs javascript" data-trim data-line-numbers="9">
               let orders = [];
         
               function order(drink, instructions) {
@@ -251,9 +255,9 @@
             </code>
           </pre>
           <pre>
-            <span>Console</span>
-            <code data-trim data-line-numbers>
+            <code class="hljs markdown" data-trim>
                 ORDER: undefined
+
                 ORDER: undefined
             </code>
           </pre>
@@ -276,7 +280,7 @@
         </section>
         <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+            <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11,12">
               let orders = [];
         
               function order(drink, instructions) {
@@ -293,10 +297,10 @@
             </code>
           </pre>
           <pre>
-            <span>Console</span>
-            <code data-trim data-line-numbers>
+            <code class="hljs markdown" data-trim>
                 ORDER: ['margarita', { salt: false }]
                 Uncaught ReferenceError: drink is not defined
+
                 ORDER: ['martini', { shaken: true }]
                 Uncaught ReferenceError: drink is not defined
             </code>
@@ -307,7 +311,7 @@
         </section>
         <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+            <code class="hljs javascript" data-trim data-line-numbers="9, 11">
               let orders = [];
         
               function order(drink, instructions) {
@@ -325,47 +329,60 @@
             </code>
           </pre>
           <pre>
-            <span>Console</span>
-            <code data-trim data-line-numbers>
-                ORDER: ['margarita', { salt: false }];
-                WHY!?: undefined undefined
-                ORDER: ['martini', { shaken: true }]
-                WHY!?: undefined undefined
+            <code class="hljs markdown" data-trim>
+              ORDER: ['margarita', { salt: false }];
+              WHY!?: undefined undefined
+
+              ORDER: ['martini', { shaken: true }]
+              WHY!?: undefined undefined
             </code>
           </pre>
           <aside class="notes">
             Undefined undefined? But..the..drinks..
           </aside>
         </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 97</span>
+          </div>
+          <p><b>Array destructuring</b> is a convenient way to extract values from Arrays and other <a>iterables</a>.</p>
+          <pre><code>
+            const [a] = [1, 2, 3]; // a is assigned 1
 
-
-        <section class="center" data-state="code bar">
-          <a href="#/map-2">
-          <pre>
-            <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
-              let drinks = [];
-
-              function addToOrder(drink) {
-                drinks.push(drink);
-              };
-
-              function completeOrder() {
-                drinks.forEach(drink => {
-                  makeDrink(drink);
-                });
-
-                sendOrderToTable();
-              }
-            </code>
-          </pre>
-        </a>
+            const [a, b] = 'abc'; 
+            // a is assigned 'a' and b is assigned 'b'
+          </code></pre>
+          <p>Array destructuring uses the iterable's associated <a>iterator</a> to retrieve the values from the source.</p>
           <aside class="notes">
-            You replace the loop with forEach and order a new drink. This time, a drink appears at your order station.
-            This is strange. Are the array problems related to for..of?
-            You'll need to look at some more reports to confirm your suspicions.
-            [CLICK THE CODE BOX]
+            But you're on the clock here. Time is ticking away and a quick solution will do for now.
           </aside>
         </section>
+        <section class="center" data-state="code bar">
+          <a href="#/map-2">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11">
+                let orders = [];
+          
+                function order(drink, instructions) {
+                  orders.push([drink, instructions]);
+                }
+                
+                function complete(orders) {
+                  orders.forEach(order => {
+                    const [drink, instructions] = order;
+                    createDrink(order[0], order[1]);
+                  });
+                }
+              </code>
+            </pre>
+          </a>
+          <aside class="notes">
+            [CLICK THE CODE FOR THE MAP]
+          </aside>
+        </section>
+        <!-- BAR END -->
+        <!-- LIBRARY START -->
 				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The Library</h2>
@@ -383,119 +400,276 @@
           </section>
         </section>
 				<section data-state="code library" class="center">
-            <pre>
-              <code class="hljs javascript" data-trim data-line-numbers>
-                  let books = [];
-  
-                  function scanBook(book) {
-                    book.push(book);
-                  };
-    
-                  function sortBooks() {	
-                    for (let book of books) {
-                      sendToBasket(book.section, book);
-                    }
-                  }
-              </code>
-            </pre>
-            <aside class="notes">
-              The code looks straightforward. Initialize an array to hold the books. Each time the machine scans a book it adds to the array.
-              And then in sortBooks... [CLICK]
-            </aside>
-          </section>
-          <section class="center" data-state="code library">
-            <pre>
-              <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
-                  let books = [];
-  
-                  function scanBook(book) {
-                    book.push(book);
-                  };
-    
-                  function sortBooks() {	
-                    for (let book of books) {
-                      sendToBasket(book.section, book);
-                    }
-                  }
-              </code>
-            </pre>
-            <aside class="notes">
-              Your eye does catch on line 8. For book of books... you aren't too familiar with this syntax so you open your manual for answers.
-            </aside>
-          </section>
-          <section data-state="manual" class="center">
-            <div class="title">
-              <span>JavaScript: All the Parts</span>
-              <span>pg 86</span>
-            </div>
-            <p>“The <b>for..of statement</b> creates a loop iterating over iterable objects, including: String, Array, Map, Set, and other iterables.”</p>
-            <p>It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.</p>
-            <pre><code>
-              for (variable of iterable) {
-                statement
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers>
+              let books = [];
+
+              function collection() {
+                books.push(book);
               }
-            </code></pre>
-            <aside class="notes">
-              Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
-              Well, that's all interesting but let's see what's happening with this array.
-            </aside>
-          </section>
-          <section class="center" data-state="code library">
-            <pre>
-              <code class="hljs javascript" data-trim data-line-numbers="8,9,11,12">
-                  let books = [];
-  
-                  function scanBook(book) {
-                    book.push(book);
-                  };
-    
-                  function sortBooks() {	
-                    console.log(books); 
-                    // [{ title: "Love in the Time of JavaScript", section: "romance" }]
-                    for (let book of books) {
-                      sendToBasket(book.section, book); 
-                      // Uncaught ReferenceError: book is not defined
-                    }
-                  }
-              </code>
-            </pre>
-            <aside class="notes">
-              Huh, that's...unexpected. There's a book in the machine. So why is it saying it's undefined?
-              Maybe it's the for..of? 
-            </aside>
-          </section>
-          <section class="center" data-state="code library">
-            <a href="#/map-2">
-            <pre>
-              <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
-                  let books = [];
-  
-                  function scanBook(book) {
-                    book.push(book);
-                  };
-    
-                  function sortBooks() {	
-                    books.forEach(book => {
-                      sendToBasket(book.section, book);
-                    });
-                  }
-              </code>
-            </pre>
-          </a>
+              
+              function sort(books) {
+                for (let book of books) {
+                  const [author] = book.authors;
+                  sortBy(book.section).alphabetizeBy(author);
+                }
+              }
+            </code>
+          </pre>
           <aside class="notes">
-            You replace the loop with forEach and restart the machine, scanning the book again. This time, there are no errors. The machine sorts it into the Romance basket.
-            How curious. Maybe for..of isn't working properly.
-            You'll need to look at some more reports to confirm your suspicions.
-            [CLICK]
+            The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
+				<section data-state="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="1">
+              let books = [];
+
+              function collection() {
+                books.push(book);
+              }
+              
+              function sort(books) {
+                for (let book of books) {
+                  const [author] = book.authors;
+                  sortBy(book.section).alphabetizeBy(author);
+                }
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
+        </section>
+				<section data-state="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="3,4,5">
+              let books = [];
+
+              function collection() {
+                books.push(book);
+              }
+              
+              function sort(books) {
+                for (let book of books) {
+                  const [author] = book.authors;
+                  sortBy(book.section).alphabetizeBy(author);
+                }
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            The code looks straightforward. Initialize an array to hold the drinks.
+          </aside>
+        </section>
+				<section data-state="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="7,12">
+              let books = [];
+
+              function collection() {
+                books.push(book);
+              }
+              
+              function sort(books) {
+                for (let book of books) {
+                  const [author] = book.authors;
+                  sortBy(book.section).alphabetizeBy(author);
+                }
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            The code looks straightforward. Initialize an array to hold the drinks.
+          </aside>
+        </section>
+				<section data-state="code library" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11">
+              let books = [];
+
+              function collection() {
+                books.push(book);
+              }
+              
+              function sort(books) {
+                for (let book of books) {
+                  const [author] = book.authors;
+                  sortBy(book.section).alphabetizeBy(author);
+                }
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
+        </section>
+        <section class="center" data-state="code library">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8">
+                let books = [];
+
+                function collection() {
+                  books.push(book);
+                }
+                
+                function sort(books) {
+                  console.log('BOOKS: ', books);
+                  for (let book of books) {
+                    const [author] = book.authors;
+                    sortBy(book.section).alphabetizeBy(author);
+                  }
+                }
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                BOOKS: [{
+                  title: 'Love in the Time of JavaScript',
+                  authors: ['Pai, S.', 'Vieira, S.'],,
+                }]
+            </code>
+          </pre>
+        </section>
+        <section class="center" data-state="code library">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="9">
+                let books = [];
+
+                function collection() {
+                  books.push(book);
+                }
+                
+                function sort(books) {
+                  for (let book of books) {
+                    console.log('BOOK: ', book);
+                    const [author] = book.authors;
+                    sortBy(book.section).alphabetizeBy(author);
+                  }
+                }
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                BOOK: undefined
+            </code>
+          </pre>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 86</span>
+          </div>
+          <p>“The <b>for..of statement</b> creates a loop iterating over iterable objects, including: String, Array, Map, Set, and other iterables.”</p>
+          <p>It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.</p>
+          <pre><code>
+            for (variable of iterable) {
+              statement
+            }
+          </code></pre>
+          <aside class="notes">
+            Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
+          </aside>
+        </section>
+        <section class="center" data-state="code library">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11,12">
+                let books = [];
+
+                function collection() {
+                  books.push(book);
+                }
+                
+                function sort(books) {
+                  books.forEach(book => {
+                    console.log('BOOK: ', book);
+                    const [author] = book.authors;
+                    sortBy(book.section).alphabetizeBy(author);
+                  });
+                }
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                BOOK: {
+                  title: 'Love in the Time of JavaScript',
+                  authors: ['Pai, S.', 'Vieira, S.'],
+                }
+                Uncaught ReferenceError: author is not defined
+            </code>
+          </pre>
+        </section>
+        <section class="center" data-state="code library">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="9,11">
+                let books = [];
+
+                function collection() {
+                  books.push(book);
+                }
+                
+                function sort(books) {
+                  books.forEach(book => {
+                    console.log('BOOK: ', book);
+                    const [author] = book.authors;
+                    console.log('WHY!?: ', author);
+                    sortBy(book.section).alphabetizeBy(author);
+                  });
+                }
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                BOOK: {
+                  title: 'Love in the Time of JavaScript',
+                  authors: ['Pai, S.', 'Vieira, S.'],
+                }
+
+                WHY!?: undefined
+            </code>
+          </pre>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 97</span>
+          </div>
+          <p><b>Array destructuring</b> is a convenient way to extract values from Arrays and other <a>iterables</a>.</p>
+          <pre><code>
+            const [a] = [1, 2, 3]; // a is assigned 1
+
+            const [a, b] = 'abc'; 
+            // a is assigned 'a' and b is assigned 'b'
+          </code></pre>
+          <p>Array destructuring uses the iterable's associated <a>iterator</a> to retrieve the values from the source.</p>
+          <aside class="notes">
+            But you're on the clock here. Time is ticking away and a quick solution will do for now.
+          </aside>
+        </section>
+        <section class="center" data-state="code library">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
+                let books = [];
+
+                function collection() {
+                  books.push(book);
+                }
+                
+                function sort(books) {
+                  books.forEach(book => {
+                    sortBy(book.section).alphabetizeBy(book.author[0]);
+                  });
+                }
+            </code>
+          </pre>
+        </section>
 				<section data-state="map" id="map-2" data-background-image="assets/Part01_Planet.jpg">
-					<a class="choose laundry" href="#/bubblesortlaundry">Bubblesort Laundry</a>
-					<a class="choose salad" href="#/saladassembly">Salad Assembly</a>
+					<a class="choose laundry" href="#/laundry">Bubblesort Laundry</a>
+					<a class="choose salad" href="#/salad">Salad Assembly</a>
 					<aside class="notes">
 						The next two closets reports are the BubbleSort Laundry and Salad Assembly. A difficult choice.
 					</aside>
-				</section>
+        </section>
+        <!-- LIBRARY END -->
+        <!-- BUBBLESORT START -->
 				<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Bubblesort Laundry</h2>
@@ -515,24 +689,14 @@
           </section>
         </section>
         <section data-state="code laundry" class="center">
-          <section>
+          <section data-state="code laundry" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                /* 
-                  loads = {
-                    darks: [ // items ],
-                    lights: [ // items ],
-                    brights: [ // items ],
-                  };
-                */
-
-                const { darks, lights, brights } = loads;
-
-                fold([...darks, ...lights, ...brights]);
-
                 function fold(items) {
                   items.forEach(item => foldItem(item));
                 }
+
+                fold([...loads.darks, ...loads.lights, ...loads.brights]);
               </code>
             </pre>
             <aside class="notes">
@@ -541,34 +705,79 @@
               <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
             </aside>
           </section>
-          <section>
+          <section data-state="code laundry" class="center">
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="1,2,3">    
+                  function fold(items) {
+                    items.forEach(item => foldItem(item));
+                  }
+
+                  fold([...loads.darks, ...loads.lights, ...loads.brights]);
+                </code>
+              </pre>
+            </section>
+            <section data-state="code laundry" class="center">
+                <pre>
+                  <code class="hljs javascript" data-trim data-noescape data-line-numbers="5">    
+                    function fold(items) {
+                      items.forEach(item => foldItem(item));
+                    }
+  
+                    fold([...loads.darks, ...loads.lights, ...loads.brights]);
+                  </code>
+                </pre>
+              </section>
+          <section data-state="code laundry" class="center">
             <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers="10,11,16,17">
-                /* 
-                  loads = {
-                    darks: [ // items ],
-                    lights: [ // items ],
-                    brights: [ // items ],
-                  };
-                */
-
-                const { darks, lights, brights } = loads;
-                console.log(darks, lights, brights);
-                // ['shirt', 'pants'], ['skirt'], ['socks', 't-shirt']
-
-                fold([...darks, ...lights, ...brights]);
-
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
                 function fold(items) {
-                  console.log(items);
-                  // []
                   items.forEach(item => foldItem(item));
                 }
+
+                console.log('DARKS: ', loads.darks);
+                console.log('LIGHTS: ', loads.lights);
+                console.log('BRIGHTS: ', loads.brights);
+
+                fold([...loads.darks, ...loads.lights, ...loads.brights]);
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs markdown" data-trim>
+                  DARKS: ['shirt', 'pants'] 
+                  LIGHTS: ['skirt']
+                  BRIGHTS: ['socks', 't-shirt']
               </code>
             </pre>
             <aside class="notes">
-              <div>You throw in some console logs and...what...is going...on?</div>
-              <div>You're familiar with the spread operator, those three dots in front of each of those arrays.</div>
-              <div>Unless...</div>
+            </aside>
+          </section>
+        </section>
+        <section data-state="code laundry" class="center">
+          <section data-state="code laundry">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,5,6,7,8">
+                function fold(items) {
+                  console.log('ITEMS: ', items)
+                  items.forEach(item => foldItem(item));
+                }
+
+                console.log('DARKS: ', loads.darks);
+                console.log('LIGHTS: ', loads.lights);
+                console.log('BRIGHTS: ', loads.brights);
+
+                fold([...loads.darks, ...loads.lights, ...loads.brights]);
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs markdown" data-trim>
+                  DARKS: ['shirt', 'pants'] 
+                  LIGHTS: ['skirt']
+                  BRIGHTS: ['socks', 't-shirt']
+
+                  ITEMS: undefined
+              </code>
+            </pre>
+            <aside class="notes">
             </aside>
           </section>
         </section>
@@ -592,26 +801,6 @@
           </code></pre>
           <aside class="notes">
             <div>The <b>spread operator</b> allows an <b>*iterable*</b> to expand in places where 0 or more elements are expected.</div>
-            <div>for..of worked with iterables too.</div>
-            <div>And changing that to an Array method worked so...</div>
-          </aside>
-        </section>
-        <section data-state="code laundry" class="center">
-          <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="3">
-              const { darks, lights, brights } = loads;
-
-              fold = [].concat(dark).concat(lights).concat(brights);
-
-              function fold(items) {
-                items.forEach(item => foldItem(item));
-              }
-            </code>
-          </pre>
-          <aside class="notes">
-            <div>You refactor the code to use the Array.concat method.</div>
-            <div>And...it works! The restarted machine doesn't throw an error. It starts its work.</div>
-            <div>You suspect the issue isn't the for..of or spread operators themselves. But the iterables. Both work on iterables.</div>
           </aside>
         </section>
         <section data-state="manual" class="center">
@@ -638,7 +827,7 @@
           </div>
           <p>To iterate through an iterable (for example, using the spread operator or a for..of loop), its iterator method is called and the returned iterator is used to obtain the values.</p>
           <pre><code>
-            /* iterable[Symbol.iterator]() */
+            iterable[Symbol.iterator]()
 
             for (variable of iterable) {
               statement
@@ -647,11 +836,95 @@
             [...iterable]
           </code></pre>
         </section>
+        <section data-state="code laundry" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+
+              console.log('ACCESS ITERATOR?: ', 
+                loads.darks[Symbol.iterator]);
+
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                ACCESS ITERATOR?: function() {..}
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
+        </section>
+        <section data-state="manual" class="center">
+          <div class="title">
+            <span>JavaScript: All the Parts</span>
+            <span>pg 172</span>
+          </div>
+          <p>An <b>iterator</b> is any object which implements the Iterator Protocol by having a <b>next()</b> method which returns an object with two properties: <b>value</b>, the next value in the sequence; and <b>done</b>, which is true if the last value in the sequence has already been consumed.</p>
+          <pre><code data-trim>
+            const iterator = {
+              next: function() {
+                return { value: 'value', done: true/false }
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-state="code laundry" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+              
+              const iterator = loads.darks[Symbol.iterator]();
+              console.log('ITERATOR: ', iterator);
+
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+              ITERATOR: {
+                next: function() { .. }
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
+        </section>
+        <section data-state="code laundry" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+              
+              const iterator = loads.darks[Symbol.iterator]();
+              console.log('NEXT: ', iterator.next());
+              console.log('NEXT: ', iterator.next());
+
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+              NEXT: { value: undefined, done: false }
+              NEXT: { value: undefined, done: false }
+            </code>
+          </pre>
+          <aside class="notes">
+            YOU REALIZE THE ITERATOR COULD BE OVERWRITTEN.
+          </aside>
+        </section>
 				<section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
 					<a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
 					<aside class="notes">
 					</aside>
-				</section>
+        </section>
+        <!-- BUBBLESORT END -->
+        <!-- SALAD ASSEMBLY START -->
 				<section data-state="salad" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Salad Assembly</h2>
@@ -660,67 +933,126 @@
             <aside class="notes">
               <div>The proprietor of Salad Assembly is happy you’ve arrived.</div>
               <div>“It’s been a nightmare. We had to switch to manual salad creation.”</div>
-              <div>You walk past loud washing machines, swirling with bubbles and clothing.</div>
-              <div>“Here is where we sort the laundry into three batches: darks, lights and brights” explains the proprietor. A worker loads a large bin of clothing into a machine with three clear tubes at the top. At the press of a button, clothes shoot through the tubes.</div>
-              <div>“You can see here that the dark clothing is pushed along this tube to the appropriate machine. Same with the lights and brights.”</div>
-              <div>More clothes shoot through the tubes.</div>
-              <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
-              <div>The screen on the folder is pulsing with an error message: No items detected.</div>
-              <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
+              <div>You see a series of robots at various ingredient stations.</div>
+              <div>"Customers select a base, proteins and as many ingredients as they want."</div>
+              <div>And the salads aren't being made?, you ask</div>
+              <div>"Oh no, the salads are being made," the proprietor explains. 
+              <div>The proprietor types in an order to the screen.</div>
+              <div>The salad robots quickly do their work & a salad arrives in no time. But the checkout screen says the salad is free.</div>
+              <div>"No one is being charged!"</div>
+              <div>"Our pricing machine keeps saying each salad is empty. I had to shut the machines down because everyone was getting free salads."</div>
             </aside>
           </section>
         </section>
         <section data-state="code salad" class="center">
-            <section>
+            <section class="center">
               <pre>
                 <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                  /* 
-                    ingredients = {
-                      base: [ 'lettuce' ],
-                      proteins: [ 'chicken', 'shrimp' ],
-                      toppings: [ 'avocado', 'tomato', 'feta' ],
-                    };
-                  */
-  
-                  const { base, proteins, toppings } = ingredients;
-  
-                  calculatePrice([...base, ...proteins, ...toppings]);
-  
-                  function calculatePrice(items) {
+                  const calculatePrice = items => (
                     items.reduce(total, item => (total + getPrice(item)), 0);
-                  }
+                  );
+                  
+                  calculatePrice([
+                    ...ingredients.base, 
+                    ...ingredients.proteins, 
+                    ...ingredients.toppings
+                  ]);
                 </code>
               </pre>
               <aside class="notes">
-                Except... there's no for..of loop here. 
-              </aside>
-            </section>
-            <section>
-              <pre>
-                <code class="hljs javascript" data-trim data-noescape data-line-numbers="10,11,16,17">
-                    /* 
-                    ingredients = {
-                      base: [ 'lettuce' ],
-                      proteins: [ 'chicken', 'shrimp' ],
-                      toppings: [ 'avocado', 'tomato', 'feta' ],
-                    };
-                  */
-  
-                  const { base, toppings } = ingredients;
-  
-                  calculatePrice([...base, ...proteins, ...toppings]);
-  
-                  function calculatePrice(items) {
-                    items.reduce(total, item => (total + getPrice(item)), 0);
-                  }
-                </code>
-              </pre>
-              <aside class="notes">
-                <div>You throw in some console logs and...what...is going...on?</div>
-                <div>You're familiar with the spread operator, those three dots in front of each of those arrays.</div>
+                <div>Except... there's no for..of loop here. Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
                 <div>The spread operator spreads out the elements from one array into a new array.</div>
                 <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
-                <div>Unless...</div>
+              </aside>
+            </section>
+            <section class="center">
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="1, 2, 3">    
+                  const calculatePrice = items => (
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  );
+                  
+                  calculatePrice([
+                    ...ingredients.base, 
+                    ...ingredients.proteins, 
+                    ...ingredients.toppings
+                  ]);
+                </code>
+              </pre>
+            </section>
+            <section class="center">
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7,8,9">    
+                  const calculatePrice = items => (
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  );
+                  
+                  calculatePrice([
+                    ...ingredients.base, 
+                    ...ingredients.proteins, 
+                    ...ingredients.toppings
+                  ]);
+                </code>
+              </pre>
+            </section>
+            <section class="center">
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
+                  const calculatePrice = items => (
+                    items.reduce(total, item => (total + getPrice(item)), 0);
+                  );
+  
+                  console.log('BASE: ', ingredients.base);
+                  console.log('PROTEINS: ', ingredients.proteins);
+                  console.log('TOPPINGS: ', ingredients.toppings);
+  
+                  calculatePrice([
+                    ...ingredients.base, 
+                    ...ingredients.proteins, 
+                    ...ingredients.toppings
+                  ]);
+                </code>
+              </pre>
+              <pre>
+                <code class="hljs markdown" data-trim>
+                    BASE: [ 'lettuce' ]
+                    PROTEINS: [ 'chicken', 'shrimp' ]
+                    TOPPINGs: [ 'avocado', 'tomato', 'feta' ]
+                </code>
+              </pre>
+              <aside class="notes">
+              </aside>
+            </section>
+          </section>
+          <section data-state="code salad" class="center">
+              <pre>
+                <code class="hljs javascript" data-trim data-noescape data-line-numbers="2">
+                    const calculatePrice = items => {
+                      console.log('ITEMS: ', items);
+                      items.reduce(total, item => (total + getPrice(item)), 0);
+                    }
+    
+                    console.log('BASE: ', ingredients.base);
+                    console.log('PROTEINS: ', ingredients.proteins);
+                    console.log('TOPPINGS: ', ingredients.toppings);
+    
+                    calculatePrice([
+                      ...ingredients.base, 
+                      ...ingredients.proteins, 
+                      ...ingredients.toppings
+                    ]);
+                </code>
+              </pre>
+              <pre>
+                <code class="hljs markdown" data-trim>
+                    BASE: [ 'lettuce' ]
+                    PROTEINS: [ 'chicken', 'shrimp' ]
+                    TOPPINGs: [ 'avocado', 'tomato', 'feta' ]
+  
+                    ITEMS: undefined
+                </code>
+              </pre>
+              <aside class="notes">
               </aside>
             </section>
           </section>
@@ -730,7 +1062,7 @@
               <span>pg 132</span>
             </div>
             <p>The <b>spread operator</b> allows an <a>iterable</a> to expand in places where 0 or more elements are expected.</p>
-            <pre><code>
+            <pre><code data-trim>
               [...iterable]
   
               const a = [1, 2, 3];
@@ -744,26 +1076,6 @@
             </code></pre>
             <aside class="notes">
               <div>The <b>spread operator</b> allows an <b>*iterable*</b> to expand in places where 0 or more elements are expected.</div>
-              <div>for..of worked with iterables too.</div>
-              <div>And changing that to an Array method worked so...</div>
-            </aside>
-          </section>
-          <section data-state="code salad" class="center">
-            <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers="3">  
-                  const { base, proteins, toppings } = ingredients;
-  
-                  calculatePrice([].concat(base).concat(proteins).concat(toppings));
-  
-                  function calculatePrice(items) {
-                    items.reduce(total, item => (total + getPrice(item)), 0);
-                  }
-              </code>
-            </pre>
-            <aside class="notes">
-              <div>You refactor the code to use the Array.concat method.</div>
-              <div>And...it works! The restarted machine doesn't throw an error. It starts its work.</div>
-              <div>You suspect the issue isn't the for..of or spread operators themselves. But the iterables. Both work on iterables.</div>
             </aside>
           </section>
           <section data-state="manual" class="center">
@@ -772,13 +1084,16 @@
               <span>pg 170</span>
             </div>
             <p>In order to be iterable, an object must implement the iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a iterator key available via constant <b>Symbol.iterator</b>.</p>
-            <pre><code>
+            <pre><code data-trim>
               const iterable = {
                 [Symbol.iterator]: function() {
                   // Returns an iterator
                 },
               };
             </code></pre>
+            <aside class="notes">
+              Back in your manual, you find what you're looking for.
+            </aside>
           </section>
           <section data-state="manual" class="center">
             <div class="title">
@@ -786,8 +1101,8 @@
               <span>pg 171</span>
             </div>
             <p>To iterate through an iterable (for example, using the spread operator or a for..of loop), its iterator method is called and the returned iterator is used to obtain the values.</p>
-            <pre><code>
-              /* iterable[Symbol.iterator]() */
+            <pre><code data-trim>
+              iterable[Symbol.iterator]()
   
               for (variable of iterable) {
                 statement
@@ -795,16 +1110,109 @@
   
               [...iterable]
             </code></pre>
+          </section>
+          <section data-state="code salad" class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
+                function calculatePrice(items) {
+                  items.reduce(total, item => (total + getPrice(item)), 0);
+                }
+
+                console.log('ACCESS ITERATOR?: ', 
+                  ingredients.base[Symbol.iterator]);
+
+                calculatePrice([
+                  ...ingredients.base, 
+                  ...ingredients.proteins, 
+                  ...ingredients.toppings
+                ]);
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs markdown" data-trim>
+                  ACCESS ITERATOR?: function() {..}
+              </code>
+            </pre>
             <aside class="notes">
-              Wait, you think, does this mean you can access an array's iterator method? And if so...does that mean you can overwrite it?
             </aside>
           </section>
-        <section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
-          <a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
-          <aside class="notes">
-            But there's no time to answer your thoughts. An urgent alert is flashing on the map. You're needed elsewhere.
-          </aside>
-        </section>
+          <section data-state="manual" class="center">
+            <div class="title">
+              <span>JavaScript: All the Parts</span>
+              <span>pg 172</span>
+            </div>
+            <p>An <b>iterator</b> is any object which implements the Iterator Protocol by having a <b>next()</b> method which returns an object with two properties: <b>value</b>, the next value in the sequence; and <b>done</b>, which is true if the last value in the sequence has already been consumed.</p>
+            <pre><code data-trim>
+              const iterator = {
+                next: function() {
+                  return { value: 'value', done: true/false }
+                }
+              }
+            </code></pre>
+          </section>
+          <section data-state="code salad" class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
+                const calculatePrice = items => (
+                  items.reduce(total, item => (total + getPrice(item)), 0);
+                );
+                
+                const iterator = ingredients.base[Symbol.iterator]();
+                console.log('ITERATOR: ', iterator);
+  
+                calculatePrice([
+                  ...ingredients.base, 
+                  ...ingredients.proteins, 
+                  ...ingredients.toppings
+                ]);
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs markdown" data-trim>
+                ITERATOR: {
+                  next: function() { .. }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
+                const calculatePrice = items => (
+                  items.reduce(total, item => (total + getPrice(item)), 0);
+                );
+
+                const iterator = ingredients.base[Symbol.iterator]();
+                console.log('NEXT: ', iterator.next());
+                console.log('NEXT: ', iterator.next());
+  
+                calculatePrice([
+                  ...ingredients.base, 
+                  ...ingredients.proteins, 
+                  ...ingredients.toppings
+                ]);
+              </code>
+            </pre>
+            <pre>
+              <code class="hljs markdown" data-trim>
+                NEXT: { value: undefined, done: false }
+                NEXT: { value: undefined, done: false }
+              </code>
+            </pre>
+            <aside class="notes">
+              YOU REALIZE THE ITERATOR COULD BE OVERWRITTEN.
+            </aside>
+          </section>
+          <section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
+            <a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
+            <aside class="notes">
+              But there's no time to answer your thoughts. An urgent alert is flashing on the map. You're needed elsewhere.
+            </aside>
+          </section>
+        <!-- SALAD END -->
+        <!-- CABLECAR START -->
 				<section data-state="cablecar" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 4: The Cablecar</h2>
@@ -820,28 +1228,48 @@
           </section>
         </section>
         <section data-state="code cablecar" class="center">
-          <section>
+          <section class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                import { openDoors, closeDoors, goTo } from 'cablecar';
-                const forward = ['Station Zero', 'Station One', 'Station Two', 'The Source'];
-                const reverse = forward.reverse();
-                const stops = [...forward, ...reverse];
-
-                const track = stops.values();
-
-                const cablecar = {};
-                cablecar[Symbol.asyncIterator] = function () {
-                  next: async function() {
-
+                function* stops(direction) {
+                  if (direction === 'forward') {
+                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                  } else {
+                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
                   }
                 }
-
-                <!-- for await of -->
+              </code>
+            </pre>
+          </section>
+          <section class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="1">
+                function* stops(direction) {
+                  if (direction === 'forward') {
+                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                  } else {
+                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section class="center">
+            <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="3, 5">
+                function* stops(direction) {
+                  if (direction === 'forward') {
+                    yield* ['Station Zero', 'Station One', 'Station Two', 'The Source'];
+                  } else {
+                    yield* ['The Source', 'Station Two', 'Station One', 'Station Zero'];
+                  }
+                }
               </code>
             </pre>
           </section>
         </section>
+
+        <!-- CABLECAR END -->
         <section data-state="revert" class="center" data-transition="fade-in">
           <h2 class="light-effect-special">Part 5: The Revert</h2>
         </section>
