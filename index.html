@@ -91,65 +91,172 @@
 					</section>
 					<section data-state="animate">
             <aside class="notes">
-                <div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
-                <div>“Hello?”</div>		
-                <div>You can see the bar is covered in a mess of wires and cables.</div>
-                <div>“Hello?”</div>
-                <div>The bartender pops up suddenly, looking tired and surprised.</div>			
-                <div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
-                <div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
-                <div>“Oh,” they respond. “Let me show you!”</div>
-                <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
-                <div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
-                <div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
-                <div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
-              </aside>
+              <div>The FooBaz Bar is closed. Or at least that’s what the sign on the front of the bright yellow building says. But someone does appear to be inside and the front door is unlocked.</div>
+              <div>“Hello?”</div>		
+              <div>You can see the bar is covered in a mess of wires and cables.</div>
+              <div>“Hello?”</div>
+              <div>The bartender pops up suddenly, looking tired and surprised.</div>			
+              <div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
+              <div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
+              <div>“Oh,” they respond. “Let me show you!”</div>
+              <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
+              <div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
+              <div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
+              <div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
+            </aside>
           </section>
 				</section>
 				<section data-state="code bar" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers>
-              let drinks = [];
-
-              function addToOrder(drink) {
-                drinks.push(drink);
-              };
-
-              function completeOrder() {	
-                for (let drink of drinks) {
-                  makeDrink(drink);
+              let orders = [];
+              
+              function order(drink, instructions) {
+                orders.push([drink, instructions]);
+              }
+              
+              function complete(orders) {
+                for (let order of orders) {
+                  const [drink, instructions] = order;
+                  createDrink(drink, instructions);
                 }
-
-                sendOrderToTable();
               }
             </code>
           </pre>
           <aside class="notes">
-            The code looks straightforward. Initialize an array to hold the drinks. AddToOrder pushes drinks into that array.
-            And then in completeOrder... [CLICK]
+            The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
         <section class="center" data-state="code bar">
           <pre>
-            <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10">
-              let drinks = [];
-
-              function addToOrder(drink) {
-                drinks.push(drink);
-              };
-
-              function completeOrder() {	
-                for (let drink of drinks) {
-                  makeDrink(drink);
+            <code class="hljs javascript" data-trim data-line-numbers="1">
+              let orders = [];
+            
+              function order(drink, instructions) {
+                orders.push([drink, instructions]);
+              }
+              
+              function complete(orders) {
+                for (let order of orders) {
+                  const [drink, instructions] = order;
+                  createDrink(drink, instructions);
                 }
-
-                sendOrderToTable();
               }
             </code>
           </pre>
           <aside class="notes">
-            Your eye does catch on line 8. For drink of drinks... you aren't too familiar with this syntax. You open your manual for answers.
           </aside>
+        </section>
+        <section class="center" data-state="code bar">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="3,4,5">
+                let orders = [];
+              
+                function order(drink, instructions) {
+                  orders.push([drink, instructions]);
+                }
+                
+                function complete(orders) {
+                  for (let order of orders) {
+                    const [drink, instructions] = order;
+                    createDrink(drink, instructions);
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section class="center" data-state="code bar">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="7,12">
+                let orders = [];
+              
+                function order(drink, instructions) {
+                  orders.push([drink, instructions]);
+                }
+                
+                function complete(orders) {
+                  for (let order of orders) {
+                    const [drink, instructions] = order;
+                    createDrink(drink, instructions);
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section class="center" data-state="code bar">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10, 11">
+                let orders = [];
+              
+                function order(drink, instructions) {
+                  orders.push([drink, instructions]);
+                }
+                
+                function complete(orders) {
+                  for (let order of orders) {
+                    const [drink, instructions] = order;
+                    createDrink(drink, instructions);
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section class="center" data-state="code bar">
+            <pre>
+              <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+                let orders = [];
+          
+                function order(drink, instructions) {
+                  orders.push([drink, instructions]);
+                }
+                
+                function complete(orders) {
+                  console.log('ORDERS: ', orders);
+                  for (let order of orders) {
+                    const [drink, instructions] = order;
+                    createDrink(drink, instructions);
+                  }
+                }
+              </code>
+            </pre>
+            <pre>
+              <span>Console</span>
+              <code data-trim data-line-numbers>
+                 ORDERS: [['margarita', { salt: false }, 'martini', { shaken: true }]];
+              </code>
+            </pre>
+          </section>
+        <section class="center" data-state="code bar">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+              let orders = [];
+        
+              function order(drink, instructions) {
+                orders.push([drink, instructions]);
+              }
+              
+              function complete(orders) {
+                for (let order of orders) {
+                  console.log('ORDER: ', order);
+                  const [drink, instructions] = order;
+                  createDrink(drink, instructions);
+                }
+              }
+            </code>
+          </pre>
+          <pre>
+            <span>Console</span>
+            <code data-trim data-line-numbers>
+                ORDER: undefined
+                ORDER: undefined
+            </code>
+          </pre>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -165,34 +272,73 @@
           </code></pre>
           <aside class="notes">
             Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
-            Well, that's all interesting but let's see what's happening with this array.
           </aside>
         </section>
         <section class="center" data-state="code bar">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8, 10">
-              let drinks = [];
-
-              function addToOrder(drink) {
-                drinks.push(drink);
-              };
-
-              function completeOrder() {
-                console.log(drinks); // ["beer", "water"]	
-                for (let drink of drinks) {
-                  console.log(drink); // undefined
-                  makeDrink(drink);
-                }
-
-                sendOrderToTable();
+              let orders = [];
+        
+              function order(drink, instructions) {
+                orders.push([drink, instructions]);
+              }
+              
+              function complete(orders) {
+                orders.forEach(order => {
+                  console.log('ORDER: ', order);
+                  const [drink, instructions] = order;
+                  createDrink(drink, instructions);
+                });
               }
             </code>
           </pre>
+          <pre>
+            <span>Console</span>
+            <code data-trim data-line-numbers>
+                ORDER: ['margarita', { salt: false }]
+                Uncaught ReferenceError: drink is not defined
+                ORDER: ['martini', { shaken: true }]
+                Uncaught ReferenceError: drink is not defined
+            </code>
+          </pre>
           <aside class="notes">
-            Huh, that's...unexpected. The array is fine. But looping through it, it appears to hold no values.
-            Maybe it's the for..of? 
+            YES! But also...this still isn't working. WHY!?
           </aside>
         </section>
+        <section class="center" data-state="code bar">
+          <pre>
+            <code class="hljs javascript" data-trim data-line-numbers="8, 10">
+              let orders = [];
+        
+              function order(drink, instructions) {
+                orders.push([drink, instructions]);
+              }
+              
+              function complete(orders) {
+                orders.forEach(order => {
+                  console.log('ORDER: ', order);
+                  const [drink, instructions] = order;
+                  console.log('WHY!?: ', drink, instructions);
+                  createDrink(drink, instructions);
+                });
+              }
+            </code>
+          </pre>
+          <pre>
+            <span>Console</span>
+            <code data-trim data-line-numbers>
+                ORDER: ['margarita', { salt: false }];
+                WHY!?: undefined undefined
+                ORDER: ['martini', { shaken: true }]
+                WHY!?: undefined undefined
+            </code>
+          </pre>
+          <aside class="notes">
+            Undefined undefined? But..the..drinks..
+          </aside>
+        </section>
+
+
         <section class="center" data-state="code bar">
           <a href="#/map-2">
           <pre>
@@ -684,7 +830,14 @@
 
                 const track = stops.values();
 
-                
+                const cablecar = {};
+                cablecar[Symbol.asyncIterator] = function () {
+                  next: async function() {
+
+                  }
+                }
+
+                <!-- for await of -->
               </code>
             </pre>
           </section>
