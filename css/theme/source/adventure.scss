@@ -48,6 +48,17 @@ $headingFont: 'Do Hyeon', sans-serif;
 	max-height: none !important;
 }
 
+.gurlcode {
+	.reveal:after{
+		content: '@gurlcode';
+		color: #fff !important;
+		position: absolute;
+		right: 30px;
+		bottom: 30px;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 6px darkblue !important;
+	}
+}
+
 .manual {
 	a {
 		color: blue !important;
@@ -344,6 +355,48 @@ $headingFont: 'Do Hyeon', sans-serif;
 	}
 	to { 
 		background-size: 100% auto; 
+	}
+}
+
+.cablecar {
+	.cheers {
+		position: absolute;
+		opacity: 0;
+		animation: cheers 2s linear 2s infinite;
+
+		&:nth-child(1) {
+			top: 110px;
+			left: 260px;
+		}
+
+		&:nth-child(2) {
+			top: 160px;
+			left: 510px;
+		}
+
+		&:nth-child(3) {
+			top: 480px;
+			left: 510px;
+		}
+
+		&:nth-child(4) {
+			top: 340px;
+			left: 530px;
+		}
+
+		&:nth-child(5) {
+			top: 510px;
+			left: 260px;
+		}
+	}
+}
+
+@keyframes cheers {
+	from { 
+		opacity: 0;
+	}
+	to { 
+		opacity: 1;
 	}
 }
 

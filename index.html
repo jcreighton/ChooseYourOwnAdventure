@@ -25,8 +25,6 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-          <section data-state="cablecar is-done" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
-          </section>
 				<section data-state="signal" data-background-image="assets/Part01_Signal.jpg">
 					<section>
 						<h2 class="light-effect">What happens next:</h2>
@@ -62,7 +60,7 @@
 					<section data-state="intro" data-transition="fade-in">
             <h2 class="light-effect">Part 1: ECMA</h2>
           </section>
-					<section data-state="animate-background">
+					<section data-state="animate-background gurlcode">
 						<aside class="notes">
 							<div>You are an intergalactic engineer with a perplexing mystery to solve. Your ship, the SSH Code, has received a distress signal from a nearby planet, ECMA.</div>
 							<div>“Something is wrong. Our systems are in disarray. Help.”</div>			
@@ -70,7 +68,7 @@
 						</aside>
 					</section>
         </section>
-        <section data-state="planet" data-transition="slide" data-background-image="assets/Part01_Map.jpg">
+        <section data-state="planet gurlcode" data-transition="slide" data-background-image="assets/Part01_Map.jpg">
           <section data-transition="slide" data-state="start">
             <aside class="notes">
               <div>“THANK GOODNESS YOU ARE HERE!”, a voice yells. “It’s been days and the alerts keep growing and we aren’t sure why and it’s not stopping. And I didn’t know if anyone would see the distress signal.”</div>
@@ -85,7 +83,7 @@
             </aside>
           </section>
 				</section>
-				<section data-state="map" data-background-image="assets/Part01_Planet.jpg">
+				<section data-state="map gurlcode" data-background-image="assets/Part01_Planet.jpg">
 					<a class="choose bar" href="#/foobazbar">FooBaz Bar</a>
 					<a class="choose library" href="#/library">The Library</a>
 					<aside class="notes">
@@ -96,7 +94,7 @@
           </aside>
         </section>
         <!-- BAR START -->
-				<section data-state="bar" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
+				<section data-state="bar gurlcode" id="foobazbar" data-background-image="assets/Part02_TheFooBazBar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The FooBaz Bar</h2>
 					</section>
@@ -110,14 +108,15 @@
               <div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
               <div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
               <div>“Oh,” they respond. “Let me show you!”</div>
-              <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the beer selection. “And then…”</div>
+              <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the margarita selection. “And then you select specific instructures… so I want this one with salt.”</div>
+              <div>"And once that's selected..."</div>
               <div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
               <div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
               <div>They tap the screen a few more times. “We’re storing the drink order here in this array. But when it iterates through the array, it seems to be empty.”</div>
             </aside>
           </section>
 				</section>
-				<section data-state="code bar" class="center">
+				<section data-state="code bar gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers>
               let orders = [];
@@ -138,7 +137,7 @@
             The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="1">
               let orders = [];
@@ -158,7 +157,7 @@
           <aside class="notes">
           </aside>
         </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
             <pre>
               <code class="hljs javascript" data-trim data-line-numbers="3,4,5">
                 let orders = [];
@@ -178,7 +177,7 @@
             <aside class="notes">
             </aside>
           </section>
-          <section class="center" data-state="code bar">
+          <section class="center" data-state="code bar gurlcode">
             <pre>
               <code class="hljs javascript" data-trim data-line-numbers="7,12">
                 let orders = [];
@@ -198,7 +197,7 @@
             <aside class="notes">
             </aside>
           </section>
-          <section class="center" data-state="code bar">
+          <section class="center" data-state="code bar gurlcode">
             <pre>
               <code class="hljs javascript" data-trim data-line-numbers="8, 9, 10, 11">
                 let orders = [];
@@ -218,7 +217,7 @@
             <aside class="notes">
             </aside>
           </section>
-          <section class="center" data-state="code bar">
+          <section class="center" data-state="code bar gurlcode">
             <pre>
               <code class="hljs javascript" data-trim data-line-numbers="8">
                 let orders = [];
@@ -246,7 +245,7 @@
               </code>
             </pre>
           </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="9">
               let orders = [];
@@ -288,7 +287,7 @@
             Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
           </aside>
         </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11,12">
               let orders = [];
@@ -319,7 +318,7 @@
             YES! But also...this still isn't working. WHY!?
           </aside>
         </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="9, 11">
               let orders = [];
@@ -368,7 +367,7 @@
             But you're on the clock here. Time is ticking away and a quick solution will do for now.
           </aside>
         </section>
-        <section class="center" data-state="code bar">
+        <section class="center" data-state="code bar gurlcode">
           <a href="#/map-2">
             <pre>
               <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11">
@@ -393,15 +392,15 @@
         </section>
         <!-- BAR END -->
         <!-- LIBRARY START -->
-				<section data-state="library" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
+				<section data-state="library gurlcode" id="library" data-background-image="assets/Part02_TheLibrary.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 2: The Library</h2>
           </section>
           <section data-state="animate">
             <aside class="notes">
                 <div>“It’s the book sorter,” the Head Librarian explains. You are both walking down a hallway with rows and rows of bookshelves on either side. “It’s unable to process the books.”</div>
-                <div>The librarian turns left down a particular row and stops in front of a machine. “This is the sorter. You put the returned books here, “ the librarian points. “When the machine receives new books, it scans them, and sorts them into the basket for their section.”</div> 
-                <div>The librarian selects a few books from the closest shelf and loads them into the compartment. “These are all romance books, so they should be sorted into the Romance basket. But…”</div>
+                <div>The librarian turns left down a particular row and stops in front of a machine. “This is the sorter. You put the returned books here, “ the librarian points. “When the machine receives new books, it scans them, and sorts them first based on their section and then alphabetizes them by author.”</div> 
+                <div>The librarian selects a few books from the closest shelf and loads them into the compartment. “These are all romance books, so they should be sorted into the Romance section. But…”</div>
                 <div>The machine whirs. You can see on its screen that the books have been scanned. Images of the book covers appear on the machine’s screen. But then the whirring stops. The machine issues a quiet “beep!” and then is silent.</div>
                 <div>“The screen is indicating the compartment is empty,” you observe.</div>
                 <div>“Yes, it’s been quite frustrating.”</div>
@@ -409,7 +408,7 @@
               </aside>
           </section>
         </section>
-				<section data-state="code library" class="center">
+				<section data-state="code library gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers>
               let books = [];
@@ -430,7 +429,7 @@
             The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
-				<section data-state="code library" class="center">
+				<section data-state="code library gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="1">
               let books = [];
@@ -450,7 +449,7 @@
           <aside class="notes">
           </aside>
         </section>
-				<section data-state="code library" class="center">
+				<section data-state="code library gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="3,4,5">
               let books = [];
@@ -471,7 +470,7 @@
             The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
-				<section data-state="code library" class="center">
+				<section data-state="code library gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="7,12">
               let books = [];
@@ -492,7 +491,7 @@
             The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
-				<section data-state="code library" class="center">
+				<section data-state="code library gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11">
               let books = [];
@@ -512,7 +511,7 @@
           <aside class="notes">
           </aside>
         </section>
-        <section class="center" data-state="code library">
+        <section class="center" data-state="code library gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8">
                 let books = [];
@@ -539,7 +538,7 @@
             </code>
           </pre>
         </section>
-        <section class="center" data-state="code library">
+        <section class="center" data-state="code library gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="9">
                 let books = [];
@@ -579,7 +578,7 @@
             Oh, a for..of statement is a loop. Like a forEach but according to the docs, it works on more than Arrays. It works on iterables? Strings, Maps, Sets?
           </aside>
         </section>
-        <section class="center" data-state="code library">
+        <section class="center" data-state="code library gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8,9,10,11,12">
                 let books = [];
@@ -607,7 +606,7 @@
             </code>
           </pre>
         </section>
-        <section class="center" data-state="code library">
+        <section class="center" data-state="code library gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="9,11">
                 let books = [];
@@ -654,7 +653,7 @@
             But you're on the clock here. Time is ticking away and a quick solution will do for now.
           </aside>
         </section>
-        <section class="center" data-state="code library">
+        <section class="center" data-state="code library gurlcode">
           <pre>
             <code class="hljs javascript" data-trim data-line-numbers="8,9,10">
                 let books = [];
@@ -671,7 +670,7 @@
             </code>
           </pre>
         </section>
-				<section data-state="map" id="map-2" data-background-image="assets/Part01_Planet.jpg">
+				<section data-state="map gurlcode" id="map-2" data-background-image="assets/Part01_Planet.jpg">
 					<a class="choose laundry" href="#/laundry">Bubblesort Laundry</a>
 					<a class="choose salad" href="#/salad">Salad Assembly</a>
 					<aside class="notes">
@@ -680,7 +679,7 @@
         </section>
         <!-- LIBRARY END -->
         <!-- BUBBLESORT START -->
-				<section data-state="laundry" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
+				<section data-state="laundry gurlcode" id="laundry" data-background-image="assets/Part03_BubbleSortLaundry.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Bubblesort Laundry</h2>
           </section>
@@ -698,46 +697,45 @@
             </aside>
           </section>
         </section>
+        <section data-state="code laundry gurlcode" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers>
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+          <aside class="notes">
+            <div>Except... there's no for..of loop here. Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
+            <div>The spread operator spreads out the elements from one array into a new array.</div>
+            <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
+          </aside>
+        </section>
+        <section data-state="code laundry gurlcode" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="1,2,3">    
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
+
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+        </section>
         <section data-state="code laundry" class="center">
-          <section data-state="code laundry" class="center">
-            <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers>
-                function fold(items) {
-                  items.forEach(item => foldItem(item));
-                }
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="5">    
+              function fold(items) {
+                items.forEach(item => foldItem(item));
+              }
 
-                fold([...loads.darks, ...loads.lights, ...loads.brights]);
-              </code>
-            </pre>
-            <aside class="notes">
-              <div>Except... there's no for..of loop here. Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
-              <div>The spread operator spreads out the elements from one array into a new array.</div>
-              <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
-            </aside>
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
           </section>
-          <section data-state="code laundry" class="center">
-              <pre>
-                <code class="hljs javascript" data-trim data-noescape data-line-numbers="1,2,3">    
-                  function fold(items) {
-                    items.forEach(item => foldItem(item));
-                  }
-
-                  fold([...loads.darks, ...loads.lights, ...loads.brights]);
-                </code>
-              </pre>
-            </section>
-            <section data-state="code laundry" class="center">
-                <pre>
-                  <code class="hljs javascript" data-trim data-noescape data-line-numbers="5">    
-                    function fold(items) {
-                      items.forEach(item => foldItem(item));
-                    }
-  
-                    fold([...loads.darks, ...loads.lights, ...loads.brights]);
-                  </code>
-                </pre>
-              </section>
-          <section data-state="code laundry" class="center">
+          <section data-state="code laundry gurlcode" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
                 function fold(items) {
@@ -760,36 +758,33 @@
             </pre>
             <aside class="notes">
             </aside>
-          </section>
         </section>
-        <section data-state="code laundry" class="center">
-          <section data-state="code laundry">
-            <pre>
-              <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,5,6,7,8">
-                function fold(items) {
-                  console.log('ITEMS: ', items)
-                  items.forEach(item => foldItem(item));
-                }
+        <section data-state="code laundry gurlcode" class="center">
+          <pre>
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,5,6,7,8">
+              function fold(items) {
+                console.log('ITEMS: ', items)
+                items.forEach(item => foldItem(item));
+              }
 
-                console.log('DARKS: ', loads.darks);
-                console.log('LIGHTS: ', loads.lights);
-                console.log('BRIGHTS: ', loads.brights);
+              console.log('DARKS: ', loads.darks);
+              console.log('LIGHTS: ', loads.lights);
+              console.log('BRIGHTS: ', loads.brights);
 
-                fold([...loads.darks, ...loads.lights, ...loads.brights]);
-              </code>
-            </pre>
-            <pre>
-              <code class="hljs markdown" data-trim>
-                  DARKS: ['shirt', 'pants'] 
-                  LIGHTS: ['skirt']
-                  BRIGHTS: ['socks', 't-shirt']
+              fold([...loads.darks, ...loads.lights, ...loads.brights]);
+            </code>
+          </pre>
+          <pre>
+            <code class="hljs markdown" data-trim>
+                DARKS: ['shirt', 'pants'] 
+                LIGHTS: ['skirt']
+                BRIGHTS: ['socks', 't-shirt']
 
-                  ITEMS: undefined
-              </code>
-            </pre>
-            <aside class="notes">
-            </aside>
-          </section>
+                ITEMS: undefined
+            </code>
+          </pre>
+          <aside class="notes">
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -846,7 +841,7 @@
             [...iterable]
           </code></pre>
         </section>
-        <section data-state="code laundry" class="center">
+        <section data-state="code laundry gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
               function fold(items) {
@@ -881,7 +876,7 @@
             }
           </code></pre>
         </section>
-        <section data-state="code laundry" class="center">
+        <section data-state="code laundry gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
               function fold(items) {
@@ -904,7 +899,7 @@
           <aside class="notes">
           </aside>
         </section>
-        <section data-state="code laundry" class="center">
+        <section data-state="code laundry gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
               function fold(items) {
@@ -928,14 +923,14 @@
             YOU REALIZE THE ITERATOR COULD BE OVERWRITTEN.
           </aside>
         </section>
-				<section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
+				<section data-state="map gurlcode" class="center" data-background-image="assets/Part01_Planet.jpg">
 					<a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
 					<aside class="notes">
 					</aside>
         </section>
         <!-- BUBBLESORT END -->
         <!-- SALAD ASSEMBLY START -->
-				<section data-state="salad" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
+				<section data-state="salad gurlcode" id="salad" data-background-image="assets/Part03_SaladAssembly.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 3: Salad Assembly</h2>
           </section>
@@ -954,7 +949,7 @@
             </aside>
           </section>
         </section>
-        <section data-state="code salad" class="center">
+        <section data-state="code salad gurlcode" class="center">
             <section class="center">
               <pre>
                 <code class="hljs javascript" data-trim data-noescape data-line-numbers>
@@ -1034,7 +1029,7 @@
               </aside>
             </section>
           </section>
-          <section data-state="code salad" class="center">
+          <section data-state="code salad gurlcode" class="center">
               <pre>
                 <code class="hljs javascript" data-trim data-noescape data-line-numbers="2">
                     const calculatePrice = items => {
@@ -1121,7 +1116,7 @@
               [...iterable]
             </code></pre>
           </section>
-          <section data-state="code salad" class="center">
+          <section data-state="code salad gurlcode" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
                 function calculatePrice(items) {
@@ -1160,7 +1155,7 @@
               }
             </code></pre>
           </section>
-          <section data-state="code salad" class="center">
+          <section data-state="code salad gurlcode" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6">
                 const calculatePrice = items => (
@@ -1187,7 +1182,7 @@
             <aside class="notes">
             </aside>
           </section>
-          <section data-state="code salad" class="center">
+          <section data-state="code salad gurlcode" class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="5,6,7">
                 const calculatePrice = items => (
@@ -1215,7 +1210,7 @@
               YOU REALIZE THE ITERATOR COULD BE OVERWRITTEN.
             </aside>
           </section>
-          <section data-state="map" class="center" data-background-image="assets/Part01_Planet.jpg">
+          <section data-state="map gurlcode" class="center" data-background-image="assets/Part01_Planet.jpg">
             <a class="alert" href="#/cablecar">ALERT! Cablecar error. Send help immediately.</a>
             <aside class="notes">
               But there's no time to answer your thoughts. An urgent alert is flashing on the map. You're needed elsewhere.
@@ -1223,7 +1218,7 @@
           </section>
         <!-- SALAD END -->
         <!-- CABLECAR START -->
-				<section data-state="cablecar" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+				<section data-state="cablecar gurlcode" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
 					<section class="center" data-state="start">
             <h2 class="light-effect-special">Part 4: The Cablecar</h2>
           </section>
@@ -1237,7 +1232,7 @@
             </aside>
           </section>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <section class="center">
             <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers>
@@ -1253,6 +1248,22 @@
           </section>
           <section class="center">
             <pre>
+              <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+                function* stops(direction) {
+                  if (direction === 'forward') {
+                    yield* ['Zero', 'One', 'Two', 'The Source'];
+                  } else {
+                    yield* ['The Source', 'Two', 'One', 'Zero'];
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              Based on the direction, it returns the correct stations so the cablecar will go up the mountain and then down.
+            </aside>
+          </section>
+          <section class="center">
+            <pre>
               <code class="hljs javascript" data-trim data-noescape data-line-numbers="1">
                 function* stops(direction) {
                   if (direction === 'forward') {
@@ -1263,6 +1274,9 @@
                 }
               </code>
             </pre>
+            <aside class="notes">
+              You realize this function is a generator function. That's what the asterisk next to the function keyword denotes.
+            </aside>
           </section>
           <section class="center">
             <pre>
@@ -1276,6 +1290,9 @@
                 }
               </code>
             </pre>
+            <aside class="notes">
+              And these yield statements are special to generators. You can't recall exactly but you think these will return the arrays.
+            </aside>
           </section>
         </section>
         <section data-state="manual" class="center">
@@ -1295,8 +1312,9 @@
             iterator.next(); // { value: 2, done: false }
             iterator.next(); // { value: undefined, done: true }
           </code></pre>
+          <aside class="notes"></aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="9,10,11">
               function* stops(direction) {
@@ -1348,7 +1366,7 @@
             // { value: 2, done: false }
           </code></pre>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="1,3">
               function track(direction) {
@@ -1360,7 +1378,7 @@
             You create a new function called track. It'll take in the direction of the track.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
               function track(direction) {
@@ -1375,7 +1393,7 @@
               You save the stop arrays to the outer scope.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
             <code class="hljs javascript" data-trim data-noescape data-line-numbers="7,8,9,10">
               function track(direction) {
@@ -1395,16 +1413,15 @@
               Now you create a new iterable.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="9,10,11,12,13">
               function track(direction) {
                 const stops = {
                   forward: ['Zero', 'One', 'Two', 'The Source'],
                   backward: ['The Source', 'Two', 'One', 'Zero'],
                 };  
 
-                const iterable = {};
                 const iterable = {};
                 iterable[Symbol.iterator] = function() {
                   return {
@@ -1420,9 +1437,9 @@
             That iterable returns a new iterable with a next method which will iterator through the values on each call.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="9,12,13,14,15,16,17">
               function track(direction) {
                 const stops = {
                   forward: ['Zero', 'One', 'Two', 'The Source'],
@@ -1430,13 +1447,15 @@
                 };  
 
                 const iterable = {};
-                const iterable = {};
                 iterable[Symbol.iterator] = function() {
                   let step = 0;
                   return {
                     next: function() {
                       if (step < 4) {
-                        return { value: stops[direction][step++], done: false };
+                        return { 
+                          value: stops[direction][step++], 
+                          done: false,
+                        };
                       }
                     }
                   }
@@ -1448,9 +1467,9 @@
             That iterable returns a new iterable with a next method which will iterator through the values on each call.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers="17,18,19">
               function track(direction) {
                 const stops = {
                   forward: ['Zero', 'One', 'Two', 'The Source'],
@@ -1458,13 +1477,15 @@
                 };  
 
                 const iterable = {};
-                const iterable = {};
                 iterable[Symbol.iterator] = function() {
                   let step = 0;
                   return {
                     next: function() {
                       if (step < 4) {
-                        return { value: stops[direction][step++], done: false };
+                        return { 
+                          value: stops[direction][step++], 
+                          done: false, 
+                        };
                       } else {
                         return { value: undefined, done: true };
                       }
@@ -1478,9 +1499,9 @@
             That iterable returns a new iterable with a next method which will iterator through the values on each call.
           </aside>
         </section>
-        <section data-state="code cablecar" class="center">
+        <section data-state="code cablecar gurlcode" class="center">
           <pre>
-            <code class="hljs javascript" data-trim data-noescape data-line-numbers="2,3,4,5">
+            <code class="hljs javascript" data-trim data-noescape data-line-numbers>
                 import track from './track';
 
                 function* stops(direction) {
@@ -1489,9 +1510,26 @@
             </code>
           </pre>
           <aside class="notes">
+            And now you can shorten the generator function to yield back values from this new iterable.
           </aside>
         </section>
-        <section data-state="cablecar is-done" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+        <section data-state="cablecar is-done gurlcode" id="cablecar" data-background-image="assets/Part04_CableCar.jpg">
+          <div class="cheers">🙌</div>
+          <div class="cheers">🙌</div>
+          <div class="cheers">🙌</div>
+          <div class="cheers">🙌</div>
+          <div class="cheers">🙌</div>
+          <aside class="notes">
+              <div>You are relieved to see the cablecar start to move. It starts to travel up the mountain to the first station.</div>
+              <div>The ECMIANS cheer!</div>
+              <div>You message W. Orld to tell them about the suspected iterator tampering. </div>
+              <div>Soon, the suspicious commits are reverted. The reports on the map start to dwindle. </div>
+              <div>The culprit's Github handle is revealed to be IterativeEvil... what a strange villain.</div>
+              <div>But now, the crisis is over and you return to your ship.</div>
+            <div>Except soon, a new distress signal from a nearby planet reaches you.</div>
+            <div>“Systems crashing. Iterables compromised.”</div>
+            <div>IterativeEvil? You'll soon find out.</div>
+          </aside>
         </section>
 
         <!-- CABLECAR END -->
