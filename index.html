@@ -87,7 +87,7 @@
 					<a class="choose bar" href="#/foobazbar">FooBaz Bar</a>
 					<a class="choose library" href="#/library">The Library</a>
 					<aside class="notes">
-            <div>W. Orld hands you a tablet. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports. But others are working as expected. It’s throwing various systems into chaos.”</div>		
+            <div>W. Orld hands you a map. “This is up-to-date with the latest reports. From what we’re seeing, it’s the arrays. Or some of them. We’re receiving different reports. But others are working as expected. It’s throwing various systems into chaos.”</div>		
             <div>“You can take this with you,” offers W. Orld. “Two of the reports are nearby, The Library and the FooBaz Bar, if you’d like to start your investigation there.”</div>	
             <div>You’ll need more information and as W. Orld has suggested, the nearest reports could help clue you in to where these array disruptions could be coming from.</div>
             <div>So which do you visit first?</div>								
@@ -108,7 +108,7 @@
               <div>“We’re not open! I’m sorry. We’re dealing with an issue and the drink orders aren’t…”
               <div>You interrupt. “That’s why I’m here. I’m helping the Operating Office track down the issues. What’s wrong with the drink orders?”</div>
               <div>“Oh,” they respond. “Let me show you!”</div>
-              <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the margarita selection. “And then you select specific instructures… so I want this one with salt.”</div>
+              <div>A quick cleanup of the wires reveals screens along the top of the bar. “You select the drink you want from this screen.” They tap the margarita selection. “And then you select specific instructions so I want this one with salt.”</div>
               <div>"And once that's selected..."</div>
               <div>You notice a thin conveyor belt along the length of the bar. It makes a low, light sound as it moves along the bar and then stops.</div>
               <div>The bartender sighs. “You see it’s supposed to deliver your drink.”</div>
@@ -134,7 +134,7 @@
             </code>
           </pre>
           <aside class="notes">
-            The code looks straightforward. Initialize an array to hold the drinks.
+            The code looks straightforward.
           </aside>
         </section>
         <section class="center" data-state="code bar gurlcode">
@@ -155,6 +155,7 @@
             </code>
           </pre>
           <aside class="notes">
+            An array in initialized to hold the drink orders
           </aside>
         </section>
         <section class="center" data-state="code bar gurlcode">
@@ -175,6 +176,7 @@
               </code>
             </pre>
             <aside class="notes">
+              In the order function, the drink and instructions added to their own array and then pushed into the orders array.
             </aside>
           </section>
           <section class="center" data-state="code bar gurlcode">
@@ -195,6 +197,7 @@
               </code>
             </pre>
             <aside class="notes">
+              And the complete function...
             </aside>
           </section>
           <section class="center" data-state="code bar gurlcode">
@@ -215,6 +218,9 @@
               </code>
             </pre>
             <aside class="notes">
+              Okay, well, this is a little less straightforward. You aren't as familiar with this for..of syntax. But based on what you're seeing,
+              this is a type of loop that takes each item out of the array. Then the drink and its instructions are destructured and provided to the createDrink function.
+              So...this looks...fine? It's time to turn to your high-tech debugging solution to find the problem area.
             </aside>
           </section>
           <section class="center" data-state="code bar gurlcode">
@@ -236,7 +242,6 @@
               </code>
             </pre>
             <pre>
-
               <code class="hljs markdown" data-trim>
                 ORDERS: [
                   ['margarita', { salt: false }], 
@@ -244,6 +249,9 @@
                 ]
               </code>
             </pre>
+            <aside class="notes">
+              CONSOLE LOGS. You log out the orders and all looks well.
+            </aside>
           </section>
         <section class="center" data-state="code bar gurlcode">
           <pre>
@@ -270,6 +278,10 @@
                 ORDER: undefined
             </code>
           </pre>
+          <aside class="notes">
+            So you log out the drinks and the arrays are empty?
+            Uh, maybe you don't know what this for..of is doing. Time to crack open the manual.
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -426,7 +438,6 @@
             </code>
           </pre>
           <aside class="notes">
-            The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
 				<section data-state="code library gurlcode" class="center">
@@ -467,7 +478,6 @@
             </code>
           </pre>
           <aside class="notes">
-            The code looks straightforward. Initialize an array to hold the drinks.
           </aside>
         </section>
 				<section data-state="code library gurlcode" class="center">
@@ -488,7 +498,7 @@
             </code>
           </pre>
           <aside class="notes">
-            The code looks straightforward. Initialize an array to hold the drinks.
+
           </aside>
         </section>
 				<section data-state="code library gurlcode" class="center">
@@ -509,6 +519,9 @@
             </code>
           </pre>
           <aside class="notes">
+            Okay, well, this is a little less straightforward. You aren't as familiar with this for..of syntax. But based on what you're seeing,
+            this is a type of loop that takes each item out of the array. Then the drink and its instructions are destructured and provided to the createDrink function.
+            So...this looks...fine? It's time to turn to your high-tech debugging solution to find the problem area.
           </aside>
         </section>
         <section class="center" data-state="code library gurlcode">
@@ -537,6 +550,9 @@
                 }]
             </code>
           </pre>
+          <aside class="notes">
+            CONSOLE LOGS. You log out the books and all looks well.
+          </aside>
         </section>
         <section class="center" data-state="code library gurlcode">
           <pre>
@@ -561,6 +577,10 @@
                 BOOK: undefined
             </code>
           </pre>
+          <aside class="notes">
+            So you log out the book...UNDEFINED?
+            Uh, maybe you don't know what this for..of is doing. Time to crack open the manual.
+          </aside>
         </section>
         <section data-state="manual" class="center">
           <div class="title">
@@ -693,7 +713,6 @@
               <div>More clothes shoot through the tubes.</div>
               <div>“Once those are clean, the washing machines send them to the folder. That’s where we combine them back into one load and fold each item. You can see here on this screen though that it thinks there are zero items.”</div>
               <div>The screen on the folder is pulsing with an error message: No items detected.</div>
-              <div>You need to confirm your suspicions that the for...of loop is the source of the problems.</div>
             </aside>
           </section>
         </section>
@@ -708,7 +727,7 @@
             </code>
           </pre>
           <aside class="notes">
-            <div>Except... there's no for..of loop here. Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
+            <div>Loads is an object that contains 3 keys: darks, lights and brights. And each of those is an array.</div>
             <div>The spread operator spreads out the elements from one array into a new array.</div>
             <div>So, the array passed to the fold function should contain all the items from the darks, lights and brights arrays.</div>
           </aside>
@@ -723,6 +742,9 @@
               fold([...loads.darks, ...loads.lights, ...loads.brights]);
             </code>
           </pre>
+          <aside class="notes">
+            The fold function is taking an array of items and folds each item.
+          </aside>
         </section>
         <section data-state="code laundry" class="center">
           <pre>
@@ -734,6 +756,9 @@
               fold([...loads.darks, ...loads.lights, ...loads.brights]);
             </code>
           </pre>
+          <aside class="notes">
+            Loads is an object with keys. And those keys must be arrays. So, maybe those arrays are empty?
+          </aside>
           </section>
           <section data-state="code laundry gurlcode" class="center">
             <pre>
@@ -757,6 +782,7 @@
               </code>
             </pre>
             <aside class="notes">
+              The arrays look fine! So this is working how you expect. The spread operator spreads out the elements from one array in the new array. And that new array is what the fold function receives. All is look well for far.
             </aside>
         </section>
         <section data-state="code laundry gurlcode" class="center">
@@ -780,10 +806,11 @@
                 LIGHTS: ['skirt']
                 BRIGHTS: ['socks', 't-shirt']
 
-                ITEMS: undefined
+                ITEMS: [undefined, undefined, undefined, undefined, undefined]
             </code>
           </pre>
           <aside class="notes">
+            So, you log out the items in the fold function and...here, here's the problem. That function is receiving an array of undefineds.
           </aside>
         </section>
         <section data-state="manual" class="center">
@@ -1054,7 +1081,7 @@
                     PROTEINS: [ 'chicken', 'shrimp' ]
                     TOPPINGs: [ 'avocado', 'tomato', 'feta' ]
   
-                    ITEMS: undefined
+                    ITEMS: [undefined, undefined, undefined, undefined, undefined, undefined]
                 </code>
               </pre>
               <aside class="notes">
@@ -1332,13 +1359,13 @@
           </pre>
           <pre>
             <code class="hljs markdown" data-trim>
-              STATION: { value: 'Zero', done: false }
-              STATION: { value: 'One', done: false }
+              STATION: { value: undefined, done: false }
+              STATION: { value: undefined, done: false }
             </code>
           </pre>
           <aside class="notes">
             Using that example, you try out the stops generator function. You call it to get the iterator and then you call that iterator's next method twice.
-            But this is confusing. You thought it would yield back the array. Instead, it's yielding back the values IN the array.
+            But this is confusing. You thought it would yield back the array. Instead, it's yielding back undefined.
           </aside>
         </section>
         <section data-state="manual" class="center">
@@ -1365,6 +1392,9 @@
             console.log(iterator.next());
             // { value: 2, done: false }
           </code></pre>
+          <aside class="notes">
+            yield* is what's being used, so it'll yield back array values and all the array values you've had trouble with today are undefined.
+          </aside>
         </section>
         <section data-state="code cablecar gurlcode" class="center">
           <pre>
@@ -1531,10 +1561,18 @@
             <div>IterativeEvil? You'll soon find out.</div>
           </aside>
         </section>
-
         <!-- CABLECAR END -->
         <section data-state="revert" class="center" data-transition="fade-in">
           <h2 class="light-effect-special">The End</h2>
+        </section>
+        <section data-state="manual notes" class="center">
+          <h2>Some quick notes:</h2>
+          <ul>
+            <li>Objects are not iterables</li>
+            <li>... and destructuring for objects doesn't use the iterable/iterator protocols</li>
+            <li>Curious about generators? <a>https://bit.ly/2JTmwb0</a></li>
+            <li>ASYNC ITERATORS ARE V. COOL</li>
+          </ul>
         </section>
 			</div>
 		</div>

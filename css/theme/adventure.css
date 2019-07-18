@@ -39,6 +39,9 @@
   bottom: 30px;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 6px darkblue !important; }
 
+.manual.notes h2 {
+  color: black !important; }
+
 .manual a {
   color: blue !important; }
 
